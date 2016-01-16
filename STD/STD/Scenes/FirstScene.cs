@@ -4,6 +4,7 @@ using STD.Entities;
 using STD.Components;
 using System.Collections.Generic;
 using STD.Entities.Interface;
+using System.Linq;
 
 namespace STD.Scenes
 {
@@ -11,24 +12,41 @@ namespace STD.Scenes
     {
         public Music MainSong = new Music(Resources.Music.MAIN_MUSIC, true);
         public IList<ITower> Towers = new List<ITower>();
+        public IList<IEnemy> Enemies = new List<IEnemy>();
 
         public FirstScene()
         {
-            Towers.Add(new BasicWeaponTower(50, 50));
-            Towers.Add(new BasicWeaponTower(100, 170));
-            Towers.Add(new BasicWeaponTower(200, 600));
-            Towers.Add(new BasicWeaponTower(300, 240));
-            Towers.Add(new BasicWeaponTower(400, 475));
-            Towers.Add(new BasicWeaponTower(500, 125));
-            Towers.Add(new BasicWeaponTower(550, 500));
+            Towers.Add(new BasicWeaponTower(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
+            Towers.Add(new BasicWeaponTower(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
+            Towers.Add(new BasicWeaponTower(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
+            Towers.Add(new BasicWeaponTower(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
+            Towers.Add(new BasicWeaponTower(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
+            Towers.Add(new BasicWeaponTower(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
+            Towers.Add(new BasicWeaponTower(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
             foreach (var tower in Towers)
                 Add(tower);
+            foreach (var enemy in Enemies)
+                Add(enemy);
             MainSong.Play();
         }
 
         public override void Update()
         {
             base.Update();
+            Global.GAME.Debugger.Log(Rand.Float(Width));
+            test();
+        }
+
+        void test()
+        {
+            foreach (var enemy in Enemies.Where(x => x.IsDead).ToList())
+                Enemies.Remove(enemy);
+            if (Enemies.Count < 10)
+            {
+                IEnemy enemy = new BasicEnemy(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height));
+                Enemies.Add(enemy);
+                Add(enemy);
+            }
         }
     }
 }

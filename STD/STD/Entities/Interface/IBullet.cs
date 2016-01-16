@@ -5,8 +5,9 @@ namespace STD.Entities.Interface
 {
     public abstract class IBullet : Entity
     {
-        private Image BulletImage;
-        private IMovement Movement;
+        public Image BulletImage;
+        public IMovement Movement;
+        public float Damage;
 
         public IBullet(IMovement movement, Image image)
         {
@@ -15,6 +16,11 @@ namespace STD.Entities.Interface
             Graphic = BulletImage;
             Graphic.CenterOrigin();
             AddComponent(Movement);
+        }
+
+        public virtual void Destroy()
+        {
+            RemoveSelf();
         }
     }
 }

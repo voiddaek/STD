@@ -59,11 +59,13 @@
     <Compile Include="Components\BasicWeapon.cs" />
     <Compile Include="Components\Interface\IMovement.cs" />
     <Compile Include="Components\StraightMovement.cs" />
+    <Compile Include="Entities\BasicEnemy.cs" />
     <Compile Include="Entities\Interface\IBullet.cs" />
     <Compile Include="Components\Interface\IWeapon.cs" />
+    <Compile Include="Entities\Interface\IEnemy.cs" />
     <Compile Include="Entities\Interface\ITower.cs" />
     <Compile Include="Entities\StraightMovementBullet.cs" />
-    <Compile Include="Entities\Tower.cs" />
+    <Compile Include="Entities\BasicWeaponTower.cs" />
     <Compile Include="Global.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -114,8 +116,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\img\enemies\enemy.png" />
     <Content Include="Resources\img\tiles.png" />
-    <Content Include="Resources\img\tower\bullet.png" />
+    <Content Include="Resources\img\towers\bullet.png" />
     <Content Include="Resources\music\Button_C-J_Fairba-8445_hifi.mp3" />
     <Content Include="Resources\music\DST-2ndBallad.mp3" />
     <Content Include="Resources\music\DST-5thStreet.mp3" />
@@ -126,7 +129,7 @@
     <Content Include="Resources\music\Mario_Jumping-Mike_Koenig-989896458.mp3" />
     <Content Include="Resources\music\MenuClick.wav" />
     <Content Include="Resources\img\particle.png" />
-    <Content Include="Resources\img\tower\tower.png" />
+    <Content Include="Resources\img\towers\tower.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

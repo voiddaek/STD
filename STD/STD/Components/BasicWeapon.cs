@@ -8,18 +8,19 @@ namespace STD.Components
 {
     public class BasicWeapon : IWeapon
     {
-        public BasicWeapon()
+        public BasicWeapon() : base(50)
         {
         }
 
         public override void Update()
         {
             base.Update();
-            if (Entity.Input.MouseButtonPressed(MouseButton.Left))
-            {
-                IBullet bullet = new StraightMovementBullet(new Vector2(Entity.X, Entity.Y), new Vector2(Entity.Input.MouseX - Entity.X, Entity.Input.MouseY - Entity.Y));
-                Scene.Add(bullet);
-            }
+        }
+
+        public override void Shoot()
+        {
+            Scene.Add(new StraightMovementBullet(new Vector2(Entity.X, Entity.Y), new Vector2(Entity.Input.MouseX - Entity.X, Entity.Input.MouseY - Entity.Y)));
+            base.Shoot();
         }
     }
 }

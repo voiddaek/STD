@@ -14,12 +14,19 @@ namespace STD
 
             public const string TILE_IMG = IMG_PATH + "tiles.png";
 
-            public class Tower
+            public class Towers
             {
-                private const string TOWER_PATH = "tower/";
+                private const string TOWERS_PATH = "towers/";
 
-                public const string TOWER = IMG_PATH + TOWER_PATH + "tower.png";
-                public const string TOWER_BULLET = IMG_PATH + TOWER_PATH + "bullet.png";
+                public const string TOWER = IMG_PATH + TOWERS_PATH + "tower.png";
+                public const string TOWER_BULLET = IMG_PATH + TOWERS_PATH + "bullet.png";
+            }
+
+            public class Enemies
+            {
+                private const string ENEMIES_PATH = "enemies/";
+
+                public const string BASIC_ENEMY = IMG_PATH + ENEMIES_PATH + "enemy.png";
             }
         }
 

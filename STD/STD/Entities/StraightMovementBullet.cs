@@ -9,11 +9,18 @@ namespace STD.Entities
     public class StraightMovementBullet : IBullet
     {
         public StraightMovementBullet(Vector2 position, Vector2 direction) 
-            : base(new StraightMovement(direction), new Image(Resources.Img.Tower.TOWER_BULLET))
+            : base(new StraightMovement(direction), new Image(Resources.Img.Towers.TOWER_BULLET))
         {
             X = position.X;
             Y = position.Y;
             LifeSpan = 60;
+            Damage = 10;
+            SetHitbox(16, 14, 1);
+        }
+
+        public override void Update()
+        {
+            base.Update();
         }
     }
 }
