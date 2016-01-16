@@ -2,7 +2,7 @@
 using STD;
 using STD.Scenes;
 
-namespace TilemapExample
+namespace STD
 {
     class Program
     {
@@ -21,7 +21,16 @@ namespace TilemapExample
             Global.PlayerSession.Controller.Button("Right").AddKey(Key.Right);
             Global.PlayerSession.Controller.Button("Right").AddMouseButton(MouseButton.Right);
             Global.GAME.FirstScene = new IntroScene();
+
+            Global.GAME.Debugger.ToggleKey = Key.F4;
             Global.GAME.Start();
+        }
+
+        [OtterCommand(helpText: "Change the color of the game.", group: "game")]
+        static void GameColor(string color)
+        {
+            // Set the game's color to the color from the command.
+            Game.Instance.Color = new Color(color);
         }
     }
 }

@@ -23,7 +23,7 @@ namespace STD.Scenes
             titleText.CenterOrigin();
             titleText.X = Global.GAME.HalfWidth;
             titleText.Y = -1000;
-            this.AddGraphic(titleText);
+            AddGraphic(titleText);
 
 
             enterText.OutlineColor = new Otter.Color("7FA8D2");
@@ -31,7 +31,7 @@ namespace STD.Scenes
             enterText.CenterOrigin();
             enterText.X = Global.GAME.HalfWidth;
             enterText.Y = 1000;
-            this.AddGraphic(enterText);
+            AddGraphic(enterText);
 
 
             Tweener.Tween(titleText, new { Y = 25 }, 100f, 10f).Ease(Ease.BackOut);
