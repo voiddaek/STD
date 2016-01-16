@@ -56,6 +56,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Global.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -63,9 +64,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources.cs" />
+    <Compile Include="Scenes\FirstScene.cs" />
+    <Compile Include="Scenes\IntroScene.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Resources\fonts\crayon.ttf" />
+    <None Include="Resources\fonts\gungsuh.ttc" />
+    <None Include="Resources\fonts\PanicStricken.ttf" />
+    <None Include="Resources\music\Ingame-theme.ogg" />
+    <None Include="Resources\music\Main-theme.ogg" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Otter\Otter.csproj">
@@ -97,11 +106,22 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="resources\img\tiles.png" />
+    <Content Include="Resources\img\tiles.png" />
+    <Content Include="Resources\music\Button_C-J_Fairba-8445_hifi.mp3" />
+    <Content Include="Resources\music\DST-2ndBallad.mp3" />
+    <Content Include="Resources\music\DST-5thStreet.mp3" />
+    <Content Include="Resources\music\DST-Afternoon.mp3" />
+    <Content Include="Resources\music\DST-Canopy.mp3" />
+    <Content Include="Resources\music\Jump.wav" />
+    <Content Include="Resources\music\Mario_Jumping-Mike_Koenig-989896458.mp3" />
+    <Content Include="Resources\music\MenuClick.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Entities\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>XCOPY "$(ProjectDir)resources" /E /Y</PostBuildEvent>
+    <PostBuildEvent>XCOPY "$(ProjectDir)Resources" /E /Y</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
