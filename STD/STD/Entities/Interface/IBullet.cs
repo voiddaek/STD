@@ -7,7 +7,6 @@ namespace STD.Entities.Interface
     {
         public Spritemap<string> BulletImage;
         public IMovement Movement;
-        public Speed Speed;
         public int Damage;
 
         public IBullet()

@@ -17,6 +17,7 @@ namespace STD.Scenes
 
         public FirstScene()
         {
+            Global.GAME.Debugger.ShowPerformance(5);
             Towers.Add(new ToCloserEnemyWeaponTower(Enemies, Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
             Towers.Add(new ToCloserEnemyWeaponTower(Enemies, Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
             Towers.Add(new ToCloserEnemyWeaponTower(Enemies, Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
