@@ -1,9 +1,12 @@
 ﻿using Otter;
+using System;
 
 namespace STD.Components.Interface
 {
     public abstract class IWeapon : AutoTimer
     {
+        public float Range;
+
         public IWeapon(float cooldown) : base(cooldown)
         {
             this.Start();
@@ -12,8 +15,6 @@ namespace STD.Components.Interface
         public override void Update()
         {
             base.Update();
-            if (AtMax)
-                Shoot();
         }
 
         public virtual void Shoot()

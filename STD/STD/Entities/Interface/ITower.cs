@@ -9,15 +9,8 @@ namespace STD.Entities.Interface
         public Spritemap<string> Sprite;
         public IWeapon Weapon;
 
-        public ITower(IWeapon w, Spritemap<string> s, float x = 0, float y = 0)
+        public ITower()
         {
-            X = x;
-            Y = y;
-            Weapon = w;
-            Sprite = s;
-            Graphic = Sprite;
-            Graphic.CenterOrigin();
-            AddComponents(Weapon);
         }
 
         public override void Update()

@@ -8,5 +8,13 @@ namespace STD
         public static Game GAME = null;
         // Global Player session
         public static Session PlayerSession;
+
+
+        public enum HitBoxTag
+        {
+            Enemy = 0,
+            Tower = 1,
+            Bullet = 2,
+        }
     }
 }

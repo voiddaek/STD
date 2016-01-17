@@ -5,17 +5,13 @@ namespace STD.Entities.Interface
 {
     public abstract class IBullet : Entity
     {
-        public Image BulletImage;
+        public Spritemap<string> BulletImage;
         public IMovement Movement;
-        public float Damage;
+        public Speed Speed;
+        public int Damage;
 
-        public IBullet(IMovement movement, Image image)
+        public IBullet()
         {
-            Movement = movement;
-            BulletImage = image;
-            Graphic = BulletImage;
-            Graphic.CenterOrigin();
-            AddComponent(Movement);
         }
 
         public virtual void Destroy()

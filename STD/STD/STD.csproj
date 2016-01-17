@@ -56,16 +56,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Components\BasicWeapon.cs" />
+    <Compile Include="Components\Movements\ToEnemyMovement.cs" />
+    <Compile Include="Components\Weapons\ToCloserEnemyWeapon.cs" />
+    <Compile Include="Components\Weapons\BasicWeapon.cs" />
+    <Compile Include="Components\Movements\CheckPointMovement.cs" />
     <Compile Include="Components\Interface\IMovement.cs" />
-    <Compile Include="Components\StraightMovement.cs" />
-    <Compile Include="Entities\BasicEnemy.cs" />
+    <Compile Include="Components\Life.cs" />
+    <Compile Include="Components\Movements\StraightMovement.cs" />
+    <Compile Include="Entities\Bullets\EnemyTargetBullet.cs" />
+    <Compile Include="Entities\Enemies\BasicEnemy.cs" />
     <Compile Include="Entities\Interface\IBullet.cs" />
     <Compile Include="Components\Interface\IWeapon.cs" />
     <Compile Include="Entities\Interface\IEnemy.cs" />
     <Compile Include="Entities\Interface\ITower.cs" />
-    <Compile Include="Entities\StraightMovementBullet.cs" />
-    <Compile Include="Entities\BasicWeaponTower.cs" />
+    <Compile Include="Entities\Bullets\StraightMovementBullet.cs" />
+    <Compile Include="Entities\Towers\ToCloserEnemyWeaponTower.cs" />
+    <Compile Include="Entities\Towers\BasicWeaponTower.cs" />
     <Compile Include="Global.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -77,14 +83,16 @@
     <Compile Include="Resources.cs" />
     <Compile Include="Scenes\FirstScene.cs" />
     <Compile Include="Scenes\IntroScene.cs" />
+    <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="Resources\fonts\crayon.ttf" />
     <None Include="Resources\fonts\gungsuh.ttc" />
     <None Include="Resources\fonts\PanicStricken.ttf" />
-    <None Include="Resources\music\Ingame-theme.ogg" />
-    <None Include="Resources\music\Main-theme.ogg" />
+    <None Include="Resources\musics\Ingame-theme.ogg" />
+    <None Include="Resources\musics\Main-theme.ogg" />
+    <None Include="Resources\sounds\enemies\enemyHurt.ogg" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Otter\Otter.csproj">
@@ -116,20 +124,20 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\img\enemies\enemy.png" />
-    <Content Include="Resources\img\tiles.png" />
-    <Content Include="Resources\img\towers\bullet.png" />
-    <Content Include="Resources\music\Button_C-J_Fairba-8445_hifi.mp3" />
-    <Content Include="Resources\music\DST-2ndBallad.mp3" />
-    <Content Include="Resources\music\DST-5thStreet.mp3" />
-    <Content Include="Resources\music\DST-Afternoon.mp3" />
-    <Content Include="Resources\music\DST-Canopy.mp3" />
-    <Content Include="Resources\img\explosion.png" />
-    <Content Include="Resources\music\Jump.wav" />
-    <Content Include="Resources\music\Mario_Jumping-Mike_Koenig-989896458.mp3" />
-    <Content Include="Resources\music\MenuClick.wav" />
-    <Content Include="Resources\img\particle.png" />
-    <Content Include="Resources\img\towers\tower.png" />
+    <Content Include="Resources\sprites\enemies\enemy.png" />
+    <Content Include="Resources\sprites\tiles.png" />
+    <Content Include="Resources\sprites\towers\bullet.png" />
+    <Content Include="Resources\musics\Button_C-J_Fairba-8445_hifi.mp3" />
+    <Content Include="Resources\musics\DST-2ndBallad.mp3" />
+    <Content Include="Resources\musics\DST-5thStreet.mp3" />
+    <Content Include="Resources\musics\DST-Afternoon.mp3" />
+    <Content Include="Resources\musics\DST-Canopy.mp3" />
+    <Content Include="Resources\sprites\explosion.png" />
+    <Content Include="Resources\musics\Jump.wav" />
+    <Content Include="Resources\musics\Mario_Jumping-Mike_Koenig-989896458.mp3" />
+    <Content Include="Resources\musics\MenuClick.wav" />
+    <Content Include="Resources\sprites\particle.png" />
+    <Content Include="Resources\sprites\towers\tower.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

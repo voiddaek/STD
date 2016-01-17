@@ -10,7 +10,7 @@ namespace STD
     {
         public class Img
         {
-            private const string IMG_PATH = "img/";
+            private const string IMG_PATH = "sprites/";
 
             public const string TILE_IMG = IMG_PATH + "tiles.png";
 
@@ -39,10 +39,22 @@ namespace STD
 
         public class Music
         {
-            private const string MUSIC_PATH = "music/";
+            private const string MUSIC_PATH = "musics/";
 
             public const string INTRO_MUSIC = MUSIC_PATH + "Main-theme.ogg";
             public const string MAIN_MUSIC = MUSIC_PATH + "Ingame-theme.ogg";
+        }
+
+        public class Sound
+        {
+            private const string SOUND_PATH = "sounds/";
+
+            public class Enemies
+            {
+                private const string ENEMIES_PATH = "enemies/";
+
+                public const string BASIC_ENEMY_HURT = SOUND_PATH + ENEMIES_PATH + "enemyHurt.ogg";
+            }
         }
     }
 }

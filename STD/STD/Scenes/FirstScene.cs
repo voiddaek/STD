@@ -1,6 +1,7 @@
 ﻿using Otter;
 using STD;
-using STD.Entities;
+using STD.Entities.Towers;
+using STD.Entities.Enemies;
 using STD.Components;
 using System.Collections.Generic;
 using STD.Entities.Interface;
@@ -16,13 +17,13 @@ namespace STD.Scenes
 
         public FirstScene()
         {
-            Towers.Add(new BasicWeaponTower(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
-            Towers.Add(new BasicWeaponTower(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
-            Towers.Add(new BasicWeaponTower(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
-            Towers.Add(new BasicWeaponTower(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
-            Towers.Add(new BasicWeaponTower(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
-            Towers.Add(new BasicWeaponTower(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
-            Towers.Add(new BasicWeaponTower(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
+            Towers.Add(new ToCloserEnemyWeaponTower(Enemies, Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
+            Towers.Add(new ToCloserEnemyWeaponTower(Enemies, Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
+            Towers.Add(new ToCloserEnemyWeaponTower(Enemies, Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
+            Towers.Add(new ToCloserEnemyWeaponTower(Enemies, Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
+            Towers.Add(new ToCloserEnemyWeaponTower(Enemies, Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
+            Towers.Add(new ToCloserEnemyWeaponTower(Enemies, Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
+            Towers.Add(new ToCloserEnemyWeaponTower(Enemies, Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
             foreach (var tower in Towers)
                 Add(tower);
             foreach (var enemy in Enemies)
@@ -33,7 +34,6 @@ namespace STD.Scenes
         public override void Update()
         {
             base.Update();
-            Global.GAME.Debugger.Log(Rand.Float(Width));
             test();
         }
 

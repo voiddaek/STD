@@ -1,18 +1,22 @@
 ﻿using Otter;
-using STD.Components;
-using STD.Entities;
-using STD.Components.Interface;
+using STD.Components.Weapons;
 using STD.Entities.Interface;
 
-namespace STD.Entities
+namespace STD.Entities.Towers
 {
     public class BasicWeaponTower : ITower
     {
         public BasicWeaponTower(float x = 0, float y = 0)
-            : base(new BasicWeapon(), new Spritemap<string>(Resources.Img.Towers.TOWER, 32, 40), x, y)
         {
+            X = x;
+            Y = y;
+            Weapon = new BasicWeapon();
+            Sprite = new Spritemap<string>(Resources.Img.Towers.TOWER, 32, 40);
+            Graphic = Sprite;
+            Graphic.CenterOrigin();
             Sprite.Add("standDown", new int[] { 3, 4 }, new float[] { 10f, 10f });
             Sprite.Play("standDown");
+            AddComponents(Weapon);
         }
 
         public override void Update()
