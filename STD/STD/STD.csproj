@@ -64,7 +64,9 @@
     <Compile Include="Components\Life.cs" />
     <Compile Include="Components\Movements\StraightMovement.cs" />
     <Compile Include="Entities\Bullets\EnemyTargetBullet.cs" />
-    <Compile Include="Entities\Enemies\BasicEnemy.cs" />
+    <Compile Include="Entities\Enemies\Enemy3Blue.cs" />
+    <Compile Include="Entities\Enemies\Enemy2Blue.cs" />
+    <Compile Include="Entities\Enemies\Enemy1Blue.cs" />
     <Compile Include="Entities\Interface\IBullet.cs" />
     <Compile Include="Components\Interface\IWeapon.cs" />
     <Compile Include="Entities\Interface\IEnemy.cs" />
@@ -124,8 +126,14 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\sprites\background.png" />
+    <Content Include="Resources\sprites\enemies\boss_1.png" />
+    <Content Include="Resources\sprites\enemies\enemy_1_blue.png" />
     <Content Include="Resources\Remember.txt" />
     <Content Include="Resources\sprites\enemies\enemy.png" />
+    <Content Include="Resources\sprites\enemies\enemy_2_blue.png" />
+    <Content Include="Resources\sprites\enemies\enemy_3_blue.png" />
+    <Content Include="Resources\sprites\enemies\explosion.png" />
     <Content Include="Resources\sprites\tiles.png" />
     <Content Include="Resources\sprites\towers\bullet.png" />
     <Content Include="Resources\musics\Button_C-J_Fairba-8445_hifi.mp3" />

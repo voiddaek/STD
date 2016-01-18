@@ -21,10 +21,11 @@ namespace STD.Components.Movements
             base.Update();
             Direction.X = CheckPoints.Value.X - Entity.X;
             Direction.Y = CheckPoints.Value.Y - Entity.Y;
+            Entity.Graphic.Angle = (float)MathHelper.ToDegrees((float)Math.Atan2(-Direction.X, Speed - Direction.Y) + (float)Math.PI / 2);
             Direction.Normalize(Speed);
             Entity.AddPosition(Direction);
-            var distance = Math.Abs(Math.Pow(Entity.X - CheckPoints.Value.X, 2) + Math.Pow(Entity.Y - CheckPoints.Value.Y, 2));
-            if (distance <= Speed * Speed)
+            var D = Vector2.Distance(CheckPoints.Value, new Vector2(Entity.X, Entity.Y));
+            if (D <= Speed)
                 CheckPoints = CheckPoints.NextOrFirst();
         }
     }

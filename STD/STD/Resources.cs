@@ -13,6 +13,7 @@ namespace STD
             private const string IMG_PATH = "sprites/";
 
             public const string TILE_IMG = IMG_PATH + "tiles.png";
+            public const string BACKGROUND = IMG_PATH + "background.png";
 
             public class Towers
             {
@@ -26,7 +27,10 @@ namespace STD
             {
                 private const string ENEMIES_PATH = "enemies/";
 
-                public const string BASIC_ENEMY = IMG_PATH + ENEMIES_PATH + "enemy.png";
+                public const string ENEMY_1_BLUE = IMG_PATH + ENEMIES_PATH + "enemy_1_blue.png";
+                public const string ENEMY_2_BLUE = IMG_PATH + ENEMIES_PATH + "enemy_2_blue.png";
+                public const string ENEMY_3_BLUE = IMG_PATH + ENEMIES_PATH + "enemy_3_blue.png";
+                public const string ENEMY_EXPLOSION = IMG_PATH + ENEMIES_PATH + "explosion.png";
             }
         }
 

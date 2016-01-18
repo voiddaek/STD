@@ -15,7 +15,7 @@ namespace STD.Components.Weapons
         public IList<IEnemy> Enemies;
 
         public ToCloserEnemyWeapon(IList<IEnemy> enemies)
-            : base(80)
+            : base(1)
         {
             Range = 150;
             Enemies = enemies;

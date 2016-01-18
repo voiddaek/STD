@@ -8,6 +8,7 @@ namespace STD.Entities.Interface
     public abstract class IEnemy : Entity
     {
         public Spritemap<string> Sprite;
+        public Spritemap<string> OnDeathSprite;
         public Sound HurtSound;
         public Life Health;
         public IMovement Movement;

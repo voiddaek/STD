@@ -5,30 +5,26 @@ using STD.Entities.Interface;
 
 namespace STD.Entities.Enemies
 {
-    public class BasicEnemy : IEnemy
+    public class Enemy1Blue : IEnemy
     {
 
-        public BasicEnemy(float x = 0, float y = 0)
+        public Enemy1Blue(float x = 0, float y = 0)
         {
             X = x;
             Y = y;
             HurtSound = new Sound(Resources.Sound.Enemies.BASIC_ENEMY_HURT);
-            Sprite = new Spritemap<string>(Resources.Img.Enemies.BASIC_ENEMY, 32, 40);
-            Sprite.Add("standLeft", new int[] { 0, 1 }, new float[] { 10f, 10f });
-            Sprite.Add("standRight", new int[] { 0, 1 }, new float[] { 10f, 10f });
-            Sprite.Add("standDown", new int[] { 3, 4 }, new float[] { 10f, 10f });
-            Sprite.Add("standUp", new int[] { 6, 7 }, new float[] { 10f, 10f });
-            Sprite.Add("walkLeft", new int[] { 0, 1 }, new float[] { 10f, 10f });
-            Sprite.Add("walkRight", new int[] { 0, 1 }, new float[] { 10f, 10f });
-            Sprite.Add("walkDown", new int[] { 3, 4 }, new float[] { 10f, 10f });
-            Sprite.Add("walkUp", new int[] { 6, 7 }, new float[] { 10f, 10f });
-            Sprite.Play("standLeft");
+            Sprite = new Spritemap<string>(Resources.Img.Enemies.ENEMY_1_BLUE, 46, 46);
+            Sprite.Add("walk", new int[] { 0, 1, 2, 3, 4, 5 }, new float[] { 10f, 2f, 1f, 10f, 2f, 1f});
+            Sprite.Play("walk");
             Graphic = Sprite;
             Graphic.CenterOrigin();
+            OnDeathSprite = new Spritemap<string>(Resources.Img.Enemies.ENEMY_EXPLOSION, 130, 130);
+            OnDeathSprite.Add("explode", new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 }, new float[] { 5f, 5f, 5f, 5f, 5f, 5f, 5f, 5f, 5f, 5f, 5f, 5f, 5f, 5f, 5f, 5f, 5f, 5f, 5f, 5f, 5f, 5f, 5f, 5f }).NoRepeat();
+            AddGraphic(OnDeathSprite);
             Health = new Life(10);
             Health.OnDeath = OnDeath;
             Health.OnHurt = OnHurt;
-            Speed = 2;
+            Speed = 6;
             var c = new System.Collections.Generic.LinkedListNode<Vector2>(new Vector2(50.0f, 50.0f));
             var t = new System.Collections.Generic.LinkedList<Vector2>();
             t.AddLast(c);
@@ -53,6 +49,7 @@ namespace STD.Entities.Enemies
 
         private void OnHurt()
         {
+            OnDeathSprite.Play("explode");
             HurtSound.Play();
         }
 
