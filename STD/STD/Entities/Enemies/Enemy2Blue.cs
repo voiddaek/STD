@@ -1,28 +1,28 @@
 ﻿using Otter;
 using STD.Components;
 using STD.Components.Movements;
-using STD.Entities.Bullets;
 using STD.Particles;
+using STD.Entities.Bullets;
 
 namespace STD.Entities.Enemies
 {
-    public class Enemy3Blue : IEnemy
+    public class Enemy2Blue : IEnemy
     {
 
-        public Enemy3Blue(float x = 0, float y = 0)
+        public Enemy2Blue(float x = 0, float y = 0)
         {
             X = x;
             Y = y;
             HurtSound = new Sound(Resources.Sound.Enemies.BASIC_ENEMY_HURT);
-            Sprite = new Spritemap<string>(Resources.Img.Enemies.ENEMY_3_BLUE, 46, 46);
-            Sprite.Add("walk", new int[] { 0, 1, 2, 3}, new float[] { 10f, 2f, 2f, 2f});
+            Sprite = new Spritemap<string>(Resources.Img.Enemies.ENEMY_2_BLUE, 46, 46);
+            Sprite.Add("walk", new int[] { 0, 1, 2, 3}, new float[] { 2f, 10f, 2f, 6f});
             Sprite.Play("walk");
             Graphic = Sprite;
             Graphic.CenterOrigin();
-            Health = new Life(18);
+            Health = new Life(15);
             Health.OnDeath = OnDeath;
             Health.OnHurt = OnHurt;
-            Speed = 150;
+            Speed = 300;
             var c = new System.Collections.Generic.LinkedListNode<Vector2>(new Vector2(50.0f, 50.0f));
             var t = new System.Collections.Generic.LinkedList<Vector2>();
             t.AddLast(c);

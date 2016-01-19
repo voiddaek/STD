@@ -9,9 +9,7 @@ namespace STD
         static void Main(string[] args)
         {
             // Create a Game.
-            Global.GAME = new Game("STD", 640, 480, 45, false);
-            Global.GAME.FixedFramerate = true;
-            Global.GAME.SetWindow(Global.WIDTH, Global.HEIGHT);
+            Global.GAME = new Game(Global.NAME, Global.WIDTH, Global.HEIGHT, Global.FPS, false);
             Global.PlayerSession = Global.GAME.AddSession("Player");
             Global.PlayerSession.Controller.AddButton(Key.Return);
             Global.PlayerSession.Controller.Button(Key.Return).AddKey(Key.Return);

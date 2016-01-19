@@ -1,14 +1,14 @@
 ﻿using Otter;
-using STD.Components.Interface;
-using STD.Entities.Interface;
+using STD.Entities.Enemies;
 
 namespace STD.Components.Movements
 {
-    public class ToEnemyMovement : IMovement
+    public class ToEnemyMovement : Movement
     {
         public IEnemy Target;
-
-        public ToEnemyMovement(float speed, IEnemy enemy)
+        public int Speed;
+        public Vector2 Direction;
+        public ToEnemyMovement(int speed, IEnemy enemy)
         {
             Target = enemy;
             Speed = speed;
@@ -22,7 +22,7 @@ namespace STD.Components.Movements
             Direction.X = Target.X - Entity.X;
             Direction.Y = Target.Y - Entity.Y;
             Direction.Normalize(Speed);
-            Entity.AddPosition(Direction);
+            MoveXY((int)(Direction.X), (int)(Direction.Y));
         }
     }
 }

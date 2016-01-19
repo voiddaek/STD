@@ -21,6 +21,8 @@ namespace STD
 
                 public const string TOWER = IMG_PATH + TOWERS_PATH + "tower.png";
                 public const string TOWER_BULLET = IMG_PATH + TOWERS_PATH + "bullet.png";
+                public const string TOWER_BULLET_EXPLOSION = IMG_PATH + TOWERS_PATH + "explosion.png";
+                public const string TOWER_BULLET_TRAIL = IMG_PATH + TOWERS_PATH + "particle.png";
             }
 
             public class Enemies

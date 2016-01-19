@@ -1,21 +1,16 @@
 ﻿using Otter;
-using STD.Components.Interface;
 
-namespace STD.Entities.Interface
+namespace STD.Entities.Bullets
 {
     public abstract class IBullet : Entity
     {
         public Spritemap<string> BulletImage;
-        public IMovement Movement;
+        public Movement Movement;
+        public int Speed;
         public int Damage;
 
         public IBullet()
         {
-        }
-
-        public virtual void Destroy()
-        {
-            RemoveSelf();
         }
     }
 }
