@@ -6,6 +6,7 @@ using STD.Components;
 using System.Collections.Generic;
 using STD.Entities.Interface;
 using System.Linq;
+using STD.Entities.Hud;
 
 namespace STD.Scenes
 {
@@ -17,18 +18,21 @@ namespace STD.Scenes
 
         public FirstScene()
         {
+            var hud = new HudSurface();
+
+            Global.GAME.AddSurface(hud.Hud);
             Towers.Add(new ToCloserEnemyWeaponTower(Enemies, Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
-            Towers.Add(new ToCloserEnemyWeaponTower(Enemies, Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
-            Towers.Add(new ToCloserEnemyWeaponTower(Enemies, Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
-            Towers.Add(new ToCloserEnemyWeaponTower(Enemies, Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
-            Towers.Add(new ToCloserEnemyWeaponTower(Enemies, Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
-            Towers.Add(new ToCloserEnemyWeaponTower(Enemies, Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
-            Towers.Add(new ToCloserEnemyWeaponTower(Enemies, Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
+            //Towers.Add(new ToCloserEnemyWeaponTower(Enemies, Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
+            //Towers.Add(new ToCloserEnemyWeaponTower(Enemies, Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
+            //Towers.Add(new ToCloserEnemyWeaponTower(Enemies, Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
+            //Towers.Add(new ToCloserEnemyWeaponTower(Enemies, Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
+            //Towers.Add(new ToCloserEnemyWeaponTower(Enemies, Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
+            //Towers.Add(new ToCloserEnemyWeaponTower(Enemies, Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
             foreach (var tower in Towers)
                 Add(tower);
             foreach (var enemy in Enemies)
                 Add(enemy);
-            MainSong.Play();
+           // MainSong.Play();
         }
 
         public override void Update()
@@ -41,7 +45,7 @@ namespace STD.Scenes
         {
             foreach (var enemy in Enemies.Where(x => x.IsDead).ToList())
                 Enemies.Remove(enemy);
-            if (Enemies.Count < 10)
+            if (Enemies.Count < 1)
             {
                 IEnemy enemy = new BasicEnemy(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height));
                 Enemies.Add(enemy);

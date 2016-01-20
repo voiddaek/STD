@@ -54,6 +54,7 @@ namespace STD.Entities.Enemies
         private void OnHurt()
         {
             HurtSound.Play();
+            Graphic.Shake = 20;
         }
 
         private void OnDeath()

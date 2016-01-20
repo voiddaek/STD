@@ -18,6 +18,7 @@ namespace STD.Entities.Towers
             Sprite.Add("standDown", new int[] { 3, 4 }, new float[] { 10f, 10f });
             Sprite.Play("standDown");
             AddComponents(Weapon);
+            AddComponent(new BasicWeapon());
         }
 
         public override void Update()

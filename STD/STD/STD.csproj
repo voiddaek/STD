@@ -70,6 +70,7 @@
     <Compile Include="Entities\Interface\IEnemy.cs" />
     <Compile Include="Entities\Interface\ITower.cs" />
     <Compile Include="Entities\Bullets\StraightMovementBullet.cs" />
+    <Compile Include="Entities\Hud\HudSurface.cs" />
     <Compile Include="Entities\Towers\ToCloserEnemyWeaponTower.cs" />
     <Compile Include="Entities\Towers\BasicWeaponTower.cs" />
     <Compile Include="Global.cs" />
