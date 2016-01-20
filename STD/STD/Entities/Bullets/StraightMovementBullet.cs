@@ -1,7 +1,8 @@
 ﻿using Otter;
 using STD.Components.Movements;
-using STD.Components.Interface;
-using STD.Entities.Interface;
+using STD.Components.Weapons;
+using STD.Entities.Bullets;
+using STD.Entities.Enemies;
 
 namespace STD.Entities.Bullets
 {
@@ -12,7 +13,7 @@ namespace STD.Entities.Bullets
             X = position.X;
             Y = position.Y;
             BulletImage = new Spritemap<string>(Resources.Img.Towers.TOWER_BULLET, 16, 14);
-            Movement = new StraightMovement(10, direction);
+            Movement = new StraightMovement(1000, direction);
             LifeSpan = 60;
             Damage = 4;
             Graphic = BulletImage;
@@ -24,6 +25,13 @@ namespace STD.Entities.Bullets
         public override void Update()
         {
             base.Update();
+            var collb = Collider.Collide(X, Y, Global.HitBoxTag.Enemy);
+            if (collb != null)
+            {
+                IEnemy enemy = (IEnemy)collb.Entity;
+                enemy.Hurt(Damage);
+                RemoveSelf();
+            }
         }
     }
 }

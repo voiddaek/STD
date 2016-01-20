@@ -1,8 +1,6 @@
 ﻿using Otter;
 using STD.Entities;
-using STD.Entities.Interface;
 using STD.Components;
-using STD.Components.Interface;
 using System;
 
 namespace STD.Components

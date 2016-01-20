@@ -1,6 +1,6 @@
 ﻿using Otter;
 using STD.Components.Weapons;
-using STD.Entities.Interface;
+using STD.Entities.Enemies;
 using System.Collections.Generic;
 
 namespace STD.Entities.Towers

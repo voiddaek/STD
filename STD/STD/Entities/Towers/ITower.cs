@@ -1,8 +1,7 @@
 ﻿using Otter;
-using STD.Components.Interface;
-using STD.Entities.Interface;
+using STD.Components.Weapons;
 
-namespace STD.Entities.Interface
+namespace STD.Entities.Towers
 {
     public abstract class ITower : Entity
     {

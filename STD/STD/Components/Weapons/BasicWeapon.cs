@@ -1,9 +1,7 @@
 ﻿using Otter;
 using STD.Entities;
 using STD.Entities.Bullets;
-using STD.Entities.Interface;
 using STD.Components;
-using STD.Components.Interface;
 
 namespace STD.Components.Weapons
 {
@@ -24,6 +22,7 @@ namespace STD.Components.Weapons
         {
             base.Shoot();
             Scene.Add(new StraightMovementBullet(new Vector2(Entity.X, Entity.Y), new Vector2(Entity.Input.MouseX - Entity.X, Entity.Input.MouseY - Entity.Y)));
+            Reset();
         }
     }
 }

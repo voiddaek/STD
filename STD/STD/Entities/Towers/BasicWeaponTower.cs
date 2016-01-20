@@ -1,6 +1,5 @@
 ﻿using Otter;
 using STD.Components.Weapons;
-using STD.Entities.Interface;
 
 namespace STD.Entities.Towers
 {

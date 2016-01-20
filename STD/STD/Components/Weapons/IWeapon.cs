@@ -1,7 +1,7 @@
 ﻿using Otter;
 using System;
 
-namespace STD.Components.Interface
+namespace STD.Components.Weapons
 {
     public abstract class IWeapon : AutoTimer
     {
@@ -19,7 +19,6 @@ namespace STD.Components.Interface
 
         public virtual void Shoot()
         {
-            Reset();
         }
     }
 }

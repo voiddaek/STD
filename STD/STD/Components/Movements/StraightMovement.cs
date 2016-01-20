@@ -1,21 +1,21 @@
 ﻿using Otter;
-using STD.Components.Interface;
 
 namespace STD.Components.Movements
 {
-    public class StraightMovement : IMovement
+    public class StraightMovement : Movement
     {
-        public StraightMovement(float speed, Vector2 direction)
+        public Vector2 Direction;
+        public int Speed;
+        public StraightMovement(int speed, Vector2 direction)
         {
-            Direction = direction;
             Speed = speed;
+            Direction.Normalize(Speed);
         }
 
         public override void Update()
         {
             base.Update();
-            Direction.Normalize(Speed);
-            Entity.AddPosition(Direction);
+            MoveXY((int)(Direction.X), (int)(Direction.Y));
         }
     }
 }

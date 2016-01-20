@@ -4,11 +4,11 @@ namespace STD
 {
     class Global
     {
+        public static string NAME = "STD";
         public static int WIDTH = 800;
         public static int HEIGHT = 600;
-        // Global Game instance
+        public static int FPS = 45;
         public static Game GAME = null;
-        // Global Player session
         public static Session PlayerSession;
 
 

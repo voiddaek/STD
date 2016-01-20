@@ -60,19 +60,24 @@
     <Compile Include="Components\Weapons\ToCloserEnemyWeapon.cs" />
     <Compile Include="Components\Weapons\BasicWeapon.cs" />
     <Compile Include="Components\Movements\CheckPointMovement.cs" />
-    <Compile Include="Components\Interface\IMovement.cs" />
     <Compile Include="Components\Life.cs" />
     <Compile Include="Components\Movements\StraightMovement.cs" />
     <Compile Include="Entities\Bullets\EnemyTargetBullet.cs" />
-    <Compile Include="Entities\Enemies\BasicEnemy.cs" />
-    <Compile Include="Entities\Interface\IBullet.cs" />
-    <Compile Include="Components\Interface\IWeapon.cs" />
-    <Compile Include="Entities\Interface\IEnemy.cs" />
-    <Compile Include="Entities\Interface\ITower.cs" />
+    <Compile Include="Entities\Enemies\Enemy3Blue.cs" />
+    <Compile Include="Entities\Enemies\Enemy2Blue.cs" />
+    <Compile Include="Entities\Enemies\Enemy1Blue.cs" />
+    <Compile Include="Entities\Bullets\IBullet.cs" />
+    <Compile Include="Components\Weapons\IWeapon.cs" />
+    <Compile Include="Entities\Enemies\IEnemy.cs" />
+    <Compile Include="Entities\Towers\ITower.cs" />
     <Compile Include="Entities\Bullets\StraightMovementBullet.cs" />
     <Compile Include="Entities\Towers\ToCloserEnemyWeaponTower.cs" />
     <Compile Include="Entities\Towers\BasicWeaponTower.cs" />
     <Compile Include="Global.cs" />
+    <Compile Include="Particles\BasicBulletExplosionParticle.cs" />
+    <Compile Include="Particles\BasicBulletTrailParticle.cs" />
+    <Compile Include="Particles\EnemyExplosionParticle.cs" />
+    <Compile Include="Particles\IParticles.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -124,8 +129,14 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\sprites\background.png" />
+    <Content Include="Resources\sprites\enemies\boss_1.png" />
+    <Content Include="Resources\sprites\enemies\enemy_1_blue.png" />
     <Content Include="Resources\Remember.txt" />
     <Content Include="Resources\sprites\enemies\enemy.png" />
+    <Content Include="Resources\sprites\enemies\enemy_2_blue.png" />
+    <Content Include="Resources\sprites\enemies\enemy_3_blue.png" />
+    <Content Include="Resources\sprites\enemies\explosion.png" />
     <Content Include="Resources\sprites\tiles.png" />
     <Content Include="Resources\sprites\towers\bullet.png" />
     <Content Include="Resources\musics\Button_C-J_Fairba-8445_hifi.mp3" />
@@ -133,11 +144,11 @@
     <Content Include="Resources\musics\DST-5thStreet.mp3" />
     <Content Include="Resources\musics\DST-Afternoon.mp3" />
     <Content Include="Resources\musics\DST-Canopy.mp3" />
-    <Content Include="Resources\sprites\explosion.png" />
+    <Content Include="Resources\sprites\towers\explosion.png" />
     <Content Include="Resources\musics\Jump.wav" />
     <Content Include="Resources\musics\Mario_Jumping-Mike_Koenig-989896458.mp3" />
     <Content Include="Resources\musics\MenuClick.wav" />
-    <Content Include="Resources\sprites\particle.png" />
+    <Content Include="Resources\sprites\towers\particle.png" />
     <Content Include="Resources\sprites\towers\tower.png" />
   </ItemGroup>
   <ItemGroup />

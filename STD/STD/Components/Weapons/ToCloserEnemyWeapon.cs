@@ -1,9 +1,8 @@
 ﻿using Otter;
 using STD.Entities;
 using STD.Entities.Bullets;
-using STD.Entities.Interface;
+using STD.Entities.Enemies;
 using STD.Components;
-using STD.Components.Interface;
 using System.Collections.Generic;
 using System.Linq;
 using System;
@@ -15,9 +14,9 @@ namespace STD.Components.Weapons
         public IList<IEnemy> Enemies;
 
         public ToCloserEnemyWeapon(IList<IEnemy> enemies)
-            : base(80)
+            : base(40)
         {
-            Range = 150;
+            Range = 300;
             Enemies = enemies;
         }
 
@@ -33,7 +32,10 @@ namespace STD.Components.Weapons
             base.Shoot();
             var enemy = Enemies.Where(x => Math.Abs(Math.Pow(x.X - Entity.X, 2) + Math.Pow(x.Y - Entity.Y, 2)) < Range * Range).FirstOrDefault();
             if (enemy != null)
+            {
                 Scene.Add(new EnemyTargetBullet(new Vector2(Entity.X, Entity.Y), enemy));
+                Reset();
+            }
         }
     }
 }
