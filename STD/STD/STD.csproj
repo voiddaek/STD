@@ -124,7 +124,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\Remember.txt" />
     <Content Include="Resources\sprites\enemies\enemy.png" />
     <Content Include="Resources\sprites\tiles.png" />
     <Content Include="Resources\sprites\towers\bullet.png" />

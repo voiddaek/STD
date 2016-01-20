@@ -4,8 +4,6 @@ namespace STD
 {
     class Global
     {
-        public static int WIDTH = 800;
-        public static int HEIGHT = 600;
         // Global Game instance
         public static Game GAME = null;
         // Global Player session

@@ -10,7 +10,7 @@ namespace STD
         {
             // Create a Game.
             Global.GAME = new Game("STD");
-            Global.GAME.SetWindow(Global.WIDTH, Global.HEIGHT);
+            Global.GAME.SetWindow(800, 600);
             Global.PlayerSession = Global.GAME.AddSession("Player");
             Global.PlayerSession.Controller.AddButton(Key.Return);
             Global.PlayerSession.Controller.Button(Key.Return).AddKey(Key.Return);
