@@ -97,6 +97,7 @@
     <None Include="Resources\fonts\PanicStricken.ttf" />
     <None Include="Resources\musics\Ingame-theme.ogg" />
     <None Include="Resources\musics\Main-theme.ogg" />
+    <None Include="Resources\shaders\blast.frag" />
     <None Include="Resources\sounds\enemies\enemyHurt.ogg" />
   </ItemGroup>
   <ItemGroup>

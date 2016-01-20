@@ -62,5 +62,12 @@ namespace STD
                 public const string BASIC_ENEMY_HURT = SOUND_PATH + ENEMIES_PATH + "enemyHurt.ogg";
             }
         }
+
+        public class Shaders
+        {
+            private const string SHADERS_PATH = "shaders/";
+
+            public const string BLAST_SHADER = SHADERS_PATH + "blast";
+        }
     }
 }

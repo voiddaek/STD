@@ -8,6 +8,7 @@ namespace STD
     {
         static void Main(string[] args)
         {
+
             // Create a Game.
             Global.GAME = new Game(Global.NAME, Global.WIDTH, Global.HEIGHT, Global.FPS, false);
             Global.PlayerSession = Global.GAME.AddSession("Player");
