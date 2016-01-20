@@ -9,8 +9,9 @@ namespace STD.Entities.Enemies
         public Spritemap<string> Sprite;
         public Sound HurtSound;
         public Life Health;
-        public Movement Movement;
-        public int Speed;
+        //public Movement Movement;
+        public Wrapper<Vector2> Direction;
+        public Wrapper<int> Speed;
         public bool IsDead { get { return Health.Health <= 0; } }
 
         public IEnemy()

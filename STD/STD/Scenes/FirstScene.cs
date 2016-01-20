@@ -117,12 +117,12 @@ namespace STD.Scenes
                     IEnemy enemy1 = new Enemy1Blue(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height));
                     Enemies.Add(enemy1);
                     Add(enemy1);
-                    IEnemy enemy2 = new Enemy2Blue(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height));
-                    Enemies.Add(enemy2);
-                    Add(enemy2);
-                    IEnemy enemy3 = new Enemy3Blue(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height));
-                    Enemies.Add(enemy3);
-                    Add(enemy3);
+                    //IEnemy enemy2 = new Enemy2Blue(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height));
+                    //Enemies.Add(enemy2);
+                    //Add(enemy2);
+                    //IEnemy enemy3 = new Enemy3Blue(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height));
+                    //Enemies.Add(enemy3);
+                    //Add(enemy3);
                     ////}
                     ////if (r == 1)
                     ////{

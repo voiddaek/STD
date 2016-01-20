@@ -30,8 +30,9 @@ namespace STD.Components.Weapons
         public override void Shoot()
         {
             base.Shoot();
-            var enemy = Enemies.Where(x => Math.Abs(Math.Pow(x.X - Entity.X, 2) + Math.Pow(x.Y - Entity.Y, 2)) < Range * Range).FirstOrDefault();
-            if (enemy != null)
+            var enemy = Enemies.Aggregate((i1, i2) => Vector2.Distance(new Vector2(i1.X, i1.Y), new Vector2(Entity.X, Entity.Y)) < Vector2.Distance(new Vector2(i2.X, i2.Y), new Vector2(Entity.X, Entity.Y)) ? i1 : i2 );
+            var distance = Vector2.Distance(new Vector2(enemy.X, enemy.Y), new Vector2(Entity.X, Entity.Y));
+            if (enemy != null && distance < Range)
             {
                 Scene.Add(new EnemyTargetBullet(new Vector2(Entity.X, Entity.Y), enemy));
                 Reset();

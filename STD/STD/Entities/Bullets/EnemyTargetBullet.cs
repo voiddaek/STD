@@ -14,14 +14,14 @@ namespace STD.Entities.Bullets
         {
             X = position.X;
             Y = position.Y;
-            Speed = 1000;
+            Speed = 3000;
             BulletImage = new Spritemap<string>(Resources.Img.Towers.TOWER_BULLET, 16, 14);
             Movement = new ToEnemyMovement(Speed, target);
             Damage = 4;
             Graphic = BulletImage;
             Graphic.CenterOrigin();
             AddComponent(Movement);
-            SetHitbox(5, 5, Global.HitBoxTag.Bullet);
+            SetHitbox(1, 1, Global.HitBoxTag.Bullet);
         }
 
         public override void Update()
@@ -32,6 +32,7 @@ namespace STD.Entities.Bullets
             {
                 IEnemy enemy = (IEnemy)collb.Entity;
                 enemy.Hurt(Damage);
+                Scene.Add(new BasicBulletExplosionParticle(X, Y));
                 RemoveSelf();
             }
             _distance += Speed;

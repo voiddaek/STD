@@ -3,12 +3,13 @@ using STD.Components;
 using STD.Components.Movements;
 using STD.Entities.Bullets;
 using STD.Particles;
+using System.Collections.Generic;
 
 namespace STD.Entities.Enemies
 {
     public class Enemy1Blue : IEnemy
     {
-
+        public Wrapper<LinkedListNode<Vector2>> Path;
         public Enemy1Blue(float x = 0, float y = 0)
         {
             X = x;
@@ -22,15 +23,19 @@ namespace STD.Entities.Enemies
             Health = new Life(10);
             Health.OnDeath = OnDeath;
             Health.OnHurt = OnHurt;
-            Speed = 600;
-            var c = new System.Collections.Generic.LinkedListNode<Vector2>(new Vector2(50.0f, 50.0f));
-            var t = new System.Collections.Generic.LinkedList<Vector2>();
+            Direction = new Wrapper<Vector2>(Vector2.Zero);
+            Speed = new Wrapper<int>(600);
+            var c = new LinkedListNode<Vector2>(new Vector2(50.0f, 50.0f));
+            var t = new LinkedList<Vector2>();
+            Path = new Wrapper<LinkedListNode<Vector2>>(c);
             t.AddLast(c);
             t.AddLast(new Vector2(Global.GAME.Width - 50.0f, 50.0f));
             t.AddLast(new Vector2(Global.GAME.Width - 50.0f, Global.GAME.Height - 50.0f));
             t.AddLast(new Vector2(50, Global.GAME.Height - 50.0f));
-            Movement = new CheckPointMovement(Speed, c);
-            AddComponent(Movement);
+            //Movement = new CheckPointMovement(Speed, c);
+            //AddComponent(Movement);
+            AddComponent(new CheckPointMovement(Direction, Speed, Path));
+            AddComponent(new Rotation(Direction));
             SetHitbox(23, 23, Global.HitBoxTag.Enemy);
         }
 

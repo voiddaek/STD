@@ -56,6 +56,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\Movements\Rotation.cs" />
     <Compile Include="Components\Movements\ToEnemyMovement.cs" />
     <Compile Include="Components\Weapons\ToCloserEnemyWeapon.cs" />
     <Compile Include="Components\Weapons\BasicWeapon.cs" />

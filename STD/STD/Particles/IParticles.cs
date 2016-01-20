@@ -11,7 +11,6 @@ namespace STD.Particles
         public IParticle(float x, float y)
             : base(x, y)
         {
-
         }
 
         public override void Update()
