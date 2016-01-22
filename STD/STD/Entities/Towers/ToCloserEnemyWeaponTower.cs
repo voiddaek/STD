@@ -7,7 +7,7 @@ namespace STD.Entities.Towers
 {
     public class ToCloserEnemyWeaponTower : ITower
     {
-        public ToCloserEnemyWeaponTower(IList<IEnemy> enemies, float x = 0, float y = 0)
+        public ToCloserEnemyWeaponTower(IList<Enemy> enemies, float x = 0, float y = 0)
         {
             X = x;
             Y = y;

@@ -1,15 +1,14 @@
 ﻿using Otter;
+using STD.Entities.Common;
 
 namespace STD.Entities.Bullets
 {
-    public abstract class IBullet : Entity
+    public abstract class Bullet : EntityWithDirection
     {
         public Spritemap<string> BulletImage;
-        public Movement Movement;
-        public int Speed;
         public int Damage;
 
-        public IBullet()
+        public Bullet()
         {
         }
     }

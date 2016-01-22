@@ -1,23 +1,22 @@
 ﻿using Otter;
+using STD.Entities.Common;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using STD;
 
 namespace STD.Components.Movements
 {
-    public class Rotation : Movement
+    public class Rotation : EntityMovement
     {
-        public Wrapper<Vector2> Direction;
-        public Rotation(Wrapper<Vector2> direction)
+        public float DefaultAngle;
+        public Rotation(EntityWithDirection entity, float defaultAngle = 0)
         {
-            Direction = direction;
+            EntityWithDirection = entity;
+            DefaultAngle = defaultAngle;
         }
 
         public override void Update()
         {
             base.Update();
-            Entity.Graphic.Angle = (float)MathHelper.ToDegrees((float)Math.Atan2(Direction.Value.X, Direction.Value.Y)) - 90;
+            Entity.Graphic.Angle = (float)MathHelper.ToDegrees((float)Math.Atan2(EntityWithDirection.Direction.X, EntityWithDirection.Direction.Y)) - DefaultAngle;
         }
     }
 }

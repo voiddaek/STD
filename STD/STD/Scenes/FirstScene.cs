@@ -1,10 +1,10 @@
 ﻿using Otter;
 using STD;
 using STD.Entities.Towers;
-using STD.Entities.Enemies;
 using STD.Components;
 using System.Collections.Generic;
 using System.Linq;
+using STD.Entities.Enemies;
 
 namespace STD.Scenes
 {
@@ -12,7 +12,7 @@ namespace STD.Scenes
     {
         public Music MainSong = new Music(Resources.Music.MAIN_MUSIC, true);
         public IList<ITower> Towers = new List<ITower>();
-        public IList<IEnemy> Enemies = new List<IEnemy>();
+        public IList<Enemy> Enemies = new List<Enemy>();
 
         public FirstScene()
         {
@@ -21,11 +21,11 @@ namespace STD.Scenes
             background.Repeat = true;
             AddGraphic(background);
             Towers.Add(new ToCloserEnemyWeaponTower(Enemies, Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
-            Towers.Add(new ToCloserEnemyWeaponTower(Enemies, Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
-            Towers.Add(new ToCloserEnemyWeaponTower(Enemies, Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
-            Towers.Add(new ToCloserEnemyWeaponTower(Enemies, Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
-            Towers.Add(new ToCloserEnemyWeaponTower(Enemies, Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
-            Towers.Add(new ToCloserEnemyWeaponTower(Enemies, Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
+            //Towers.Add(new ToCloserEnemyWeaponTower(Enemies, Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
+            //Towers.Add(new ToCloserEnemyWeaponTower(Enemies, Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
+            //Towers.Add(new ToCloserEnemyWeaponTower(Enemies, Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
+            //Towers.Add(new ToCloserEnemyWeaponTower(Enemies, Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
+            //Towers.Add(new ToCloserEnemyWeaponTower(Enemies, Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
             //Towers.Add(new ToCloserEnemyWeaponTower(Enemies, Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
             //Towers.Add(new ToCloserEnemyWeaponTower(Enemies, Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
             //Towers.Add(new ToCloserEnemyWeaponTower(Enemies, Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
@@ -109,12 +109,12 @@ namespace STD.Scenes
         {
             foreach (var enemy in Enemies.Where(x => x.IsDead).ToList())
                 Enemies.Remove(enemy);
-            if (Enemies.Count < 25)
+            if (Enemies.Count < 1)
             {
                 //var r = Rand.Int(0, 3);
                 //if (r == 0)
                 //{
-                    IEnemy enemy1 = new Enemy1Blue(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height));
+                Enemy enemy1 = new Enemy1Blue(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height));
                     Enemies.Add(enemy1);
                     Add(enemy1);
                     //IEnemy enemy2 = new Enemy2Blue(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height));

@@ -1,33 +1,28 @@
 ﻿using Otter;
-using System;
+using STD.Entities.Common;
 using System.Collections.Generic;
-using System.Linq;
-using STD;
 
 namespace STD.Components.Movements
 {
-    public class CheckPointMovement : Movement
+    public class CheckPointMovement : EntityMovement
     {
-        public Wrapper<int> Speed;
-        public Wrapper<Vector2> Direction;
-        public Wrapper<LinkedListNode<Vector2>> CheckPoints;
-        public CheckPointMovement(Wrapper<Vector2> direction, Wrapper<int> speed, Wrapper<LinkedListNode<Vector2>> checkPoints)
+        public LinkedListNode<Vector2> CheckPoints;
+        public CheckPointMovement(EntityWithDirection entity, LinkedListNode<Vector2> checkPoints)
         {
-            Direction = direction;
+            EntityWithDirection = entity;
             CheckPoints = checkPoints;
-            Speed = speed;
         }
 
         public override void Update()
         {
             base.Update();
-            Direction.Value.X = CheckPoints.Value.Value.X - Entity.X;
-            Direction.Value.Y = CheckPoints.Value.Value.Y - Entity.Y;
-            Direction.Value.Normalize(Speed.Value);
-            MoveXY((int)Direction.Value.X, (int)Direction.Value.Y);
-            var distance = Vector2.Distance(CheckPoints.Value.Value, new Vector2(Entity.X, Entity.Y));
-            if (distance <= Speed.Value / SpeedScale)
-                CheckPoints.Value = CheckPoints.Value.NextOrFirst();
+            EntityWithDirection.Direction.X = CheckPoints.Value.X - Entity.X;
+            EntityWithDirection.Direction.Y = CheckPoints.Value.Y - Entity.Y;
+            EntityWithDirection.Direction.Normalize(EntityWithDirection.Speed);
+            MoveXY((int)EntityWithDirection.Direction.X, (int)EntityWithDirection.Direction.Y);
+            var distance = Vector2.Distance(CheckPoints.Value, new Vector2(Entity.X, Entity.Y));
+            if (distance <= EntityWithDirection.Speed / SpeedScale)
+                CheckPoints = CheckPoints.NextOrFirst();
         }
     }
 }

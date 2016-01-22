@@ -1,19 +1,17 @@
 ﻿using Otter;
-using STD.Entities;
 using STD.Entities.Bullets;
 using STD.Entities.Enemies;
-using STD.Components;
 using System.Collections.Generic;
 using System.Linq;
-using System;
+
 
 namespace STD.Components.Weapons
 {
     public class ToCloserEnemyWeapon : IWeapon
     {
-        public IList<IEnemy> Enemies;
+        public IList<Enemy> Enemies;
 
-        public ToCloserEnemyWeapon(IList<IEnemy> enemies)
+        public ToCloserEnemyWeapon(IList<Enemy> enemies)
             : base(40)
         {
             Range = 300;

@@ -1,17 +1,16 @@
 ﻿using Otter;
+using STD.Entities.Common;
 using STD.Entities.Enemies;
 
 namespace STD.Components.Movements
 {
-    public class ToEnemyMovement : Movement
+    public class ToEnemyMovement : EntityMovement
     {
-        public IEnemy Target;
-        public int Speed;
-        public Vector2 Direction;
-        public ToEnemyMovement(int speed, IEnemy enemy)
+        public Enemy Target;
+        public ToEnemyMovement(EntityWithDirection entity, Enemy enemy)
         {
             Target = enemy;
-            Speed = speed;
+            EntityWithDirection = entity;
         }
 
         public override void Update()
@@ -19,10 +18,10 @@ namespace STD.Components.Movements
             base.Update();
             if (Target.IsDead)
                 Entity.RemoveSelf();
-            Direction.X = Target.X - Entity.X;
-            Direction.Y = Target.Y - Entity.Y;
-            Direction.Normalize(Speed);
-            MoveXY((int)(Direction.X), (int)(Direction.Y));
+            EntityWithDirection.Direction.X = Target.X - Entity.X;
+            EntityWithDirection.Direction.Y = Target.Y - Entity.Y;
+            EntityWithDirection.Direction.Normalize(EntityWithDirection.Speed);
+            MoveXY((int)(EntityWithDirection.Direction.X), (int)(EntityWithDirection.Direction.Y));
         }
     }
 }
