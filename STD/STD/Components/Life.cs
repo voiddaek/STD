@@ -25,5 +25,10 @@ namespace STD.Components
             if (Health <= 0)
                 OnDeath();
         }
+
+        public bool IsDead
+        {
+            get { return Health <= 0; }
+        }
     }
 }

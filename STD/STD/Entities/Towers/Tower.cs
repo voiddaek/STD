@@ -10,6 +10,7 @@ namespace STD.Entities.Towers
 
         public Tower()
         {
+            Layer = (int)Global.LayerPriority.Tower;
         }
 
         public override void Update()

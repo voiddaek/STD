@@ -19,13 +19,19 @@ namespace STD.Scenes
             background.Repeat = true;
             AddGraphic(background);
             Add(new ToCloserEnemyWeaponTower(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
-            Add(new Enemy1Blue(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
+            Add(new ToCloserEnemyWeaponTower(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
+            Add(new ToCloserEnemyWeaponTower(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
+            Add(new ToCloserEnemyWeaponTower(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
+            Add(new ToCloserEnemyWeaponTower(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
             MainSong.Play();
         }
 
         public override void Update()
         {
             base.Update();
+            var enemies = GetEntities<Enemy>();
+            for (int i = enemies.Count; i < 30; ++i)
+                Add(new Enemy1Blue(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
         }
     }
 }

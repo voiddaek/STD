@@ -17,22 +17,51 @@ namespace STD
 
             public class Towers
             {
-                private const string TOWERS_PATH = "towers/";
+                private const string TOWERS_PATH = IMG_PATH + "towers/";
 
-                public const string TOWER = IMG_PATH + TOWERS_PATH + "tower.png";
-                public const string TOWER_BULLET = IMG_PATH + TOWERS_PATH + "bullet.png";
-                public const string TOWER_BULLET_EXPLOSION = IMG_PATH + TOWERS_PATH + "explosion.png";
-                public const string TOWER_BULLET_TRAIL = IMG_PATH + TOWERS_PATH + "particle.png";
+                public const string TOWER_1_1 = TOWERS_PATH + "turret-1-1.png";
+                public const string TOWER_1_2 = TOWERS_PATH + "turret-1-2.png";
+                public const string TOWER_1_3 = TOWERS_PATH + "turret-1-3.png";
+                public const string TOWER_2_1 = TOWERS_PATH + "turret-2-1.png";
+                public const string TOWER_2_2 = TOWERS_PATH + "turret-2-2.png";
+                public const string TOWER_2_3 = TOWERS_PATH + "turret-2-3.png";
+                public const string TOWER_3_1 = TOWERS_PATH + "turret-3-1.png";
+                public const string TOWER_3_2 = TOWERS_PATH + "turret-3-2.png";
+                public const string TOWER_3_3 = TOWERS_PATH + "turret-3-3.png";
+                public const string TOWER_4_1 = TOWERS_PATH + "turret-4-1.png";
+                public const string TOWER_4_2 = TOWERS_PATH + "turret-4-2.png";
+                public const string TOWER_4_3 = TOWERS_PATH + "turret-4-3.png";
+                public const string TOWER_5_1 = TOWERS_PATH + "turret-5-1.png";
+                public const string TOWER_5_2 = TOWERS_PATH + "turret-5-2.png";
+                public const string TOWER_5_3 = TOWERS_PATH + "turret-5-3.png";
+                public const string TOWER_6_1 = TOWERS_PATH + "turret-6-1.png";
+                public const string TOWER_6_2 = TOWERS_PATH + "turret-6-2.png";
+                public const string TOWER_6_3 = TOWERS_PATH + "turret-6-3.png";
+                public const string TOWER_7_1 = TOWERS_PATH + "turret-7-1.png";
+                public const string TOWER_7_2 = TOWERS_PATH + "turret-7-2.png";
+                public const string TOWER_7_3 = TOWERS_PATH + "turret-7-3.png";
+                public const string TOWER_BULLET_EXPLOSION = TOWERS_PATH + "explosion.png";
+                public const string TOWER_BULLET_TRAIL = TOWERS_PATH + "particle.png";
+            }
+
+            public class Bullets
+            {
+                private const string BULLETS_PATH = IMG_PATH + "bullets/";
+
+                public const string BULLET_RED_1_1 = BULLETS_PATH + "bullet-red-1-1.png";
+                public const string BULLET_BLUE_1_1 = BULLETS_PATH + "bullet-blue-1-1.png";
+                public const string BULLET_YELLOW_1_1 = BULLETS_PATH + "turret-1-3.png";
+                public const string BULLET_GREEN_1_1 = BULLETS_PATH + "bullet-yellow-1-1.png";
             }
 
             public class Enemies
             {
-                private const string ENEMIES_PATH = "enemies/";
+                private const string ENEMIES_PATH = IMG_PATH + "enemies/";
 
-                public const string ENEMY_1_BLUE = IMG_PATH + ENEMIES_PATH + "enemy_1_blue.png";
-                public const string ENEMY_2_BLUE = IMG_PATH + ENEMIES_PATH + "enemy_2_blue.png";
-                public const string ENEMY_3_BLUE = IMG_PATH + ENEMIES_PATH + "enemy_3_blue.png";
-                public const string ENEMY_EXPLOSION = IMG_PATH + ENEMIES_PATH + "explosion.png";
+                public const string ENEMY_1_BLUE = ENEMIES_PATH + "enemy_1_blue.png";
+                public const string ENEMY_2_BLUE = ENEMIES_PATH + "enemy_2_blue.png";
+                public const string ENEMY_3_BLUE = ENEMIES_PATH + "enemy_3_blue.png";
+                public const string ENEMY_EXPLOSION = ENEMIES_PATH + "explosion.png";
             }
         }
 
@@ -57,9 +86,9 @@ namespace STD
 
             public class Enemies
             {
-                private const string ENEMIES_PATH = "enemies/";
+                private const string ENEMIES_PATH = SOUND_PATH + "enemies/";
 
-                public const string BASIC_ENEMY_HURT = SOUND_PATH + ENEMIES_PATH + "enemyHurt.ogg";
+                public const string BASIC_ENEMY_HURT = ENEMIES_PATH + "enemyHurt.ogg";
             }
         }
 
@@ -67,7 +96,7 @@ namespace STD
         {
             private const string SHADERS_PATH = "shaders/";
 
-            public const string BLAST_SHADER = SHADERS_PATH + "blast";
+            public const string BLAST_SHADER = SHADERS_PATH + "blast.frag";
         }
     }
 }

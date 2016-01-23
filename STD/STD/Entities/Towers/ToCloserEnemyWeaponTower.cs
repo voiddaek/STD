@@ -12,13 +12,11 @@ namespace STD.Entities.Towers
         {
             X = x;
             Y = y;
-            Sprite = new Spritemap<string>(Resources.Img.Towers.TOWER, 32, 40);
+            Sprite = new Spritemap<string>(Resources.Img.Towers.TOWER_1_1, 40, 40);
             Graphic = Sprite;
             Graphic.CenterOrigin();
-            Sprite.Add("standDown", new int[] { 3, 4 }, new float[] { 10f, 10f });
-            Sprite.Play("standDown");
             AddComponents(new ToCloserEnemyWeapon(this));
-            AddComponent(new Rotation(this));
+            AddComponent(new Rotation(this, 180));
         }
 
         public override void Update()

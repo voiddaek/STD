@@ -132,6 +132,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\sprites\background.png" />
+    <Content Include="Resources\sprites\bullets\bullet-blue-1-1.png" />
+    <Content Include="Resources\sprites\bullets\bullet-green-1-1.png" />
+    <Content Include="Resources\sprites\bullets\bullet-red-1-1.png" />
+    <Content Include="Resources\sprites\bullets\bullet-yellow-1-1.png" />
     <Content Include="Resources\sprites\enemies\boss_1.png" />
     <Content Include="Resources\sprites\enemies\enemy_1_blue.png" />
     <Content Include="Resources\Remember.txt" />
@@ -151,9 +155,32 @@
     <Content Include="Resources\musics\Mario_Jumping-Mike_Koenig-989896458.mp3" />
     <Content Include="Resources\musics\MenuClick.wav" />
     <Content Include="Resources\sprites\towers\particle.png" />
-    <Content Include="Resources\sprites\towers\tower.png" />
+    <Content Include="Resources\sprites\towers\turret-1-1.png" />
+    <Content Include="Resources\sprites\towers\turret-1-2.png" />
+    <Content Include="Resources\sprites\towers\turret-1-3.png" />
+    <Content Include="Resources\sprites\towers\turret-2-1.png" />
+    <Content Include="Resources\sprites\towers\turret-2-2.png" />
+    <Content Include="Resources\sprites\towers\turret-2-3.png" />
+    <Content Include="Resources\sprites\towers\turret-3-1.png" />
+    <Content Include="Resources\sprites\towers\turret-3-2.png" />
+    <Content Include="Resources\sprites\towers\turret-3-3.png" />
+    <Content Include="Resources\sprites\towers\turret-4-1.png" />
+    <Content Include="Resources\sprites\towers\turret-4-2.png" />
+    <Content Include="Resources\sprites\towers\turret-4-3.png" />
+    <Content Include="Resources\sprites\towers\turret-5-1.png" />
+    <Content Include="Resources\sprites\towers\turret-5-2.png" />
+    <Content Include="Resources\sprites\towers\turret-5-3.png" />
+    <Content Include="Resources\sprites\towers\turret-6-1.png" />
+    <Content Include="Resources\sprites\towers\turret-6-2.png" />
+    <Content Include="Resources\sprites\towers\turret-6-3.png" />
+    <Content Include="Resources\sprites\towers\turret-7-1.png" />
+    <Content Include="Resources\sprites\towers\turret-7-2.png" />
+    <Content Include="Resources\sprites\towers\turret-7-3.png" />
+    <Content Include="Resources\sprites\towers\turret-base.gif" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Resources\sprites\effects\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>XCOPY "$(ProjectDir)Resources" /E /Y</PostBuildEvent>

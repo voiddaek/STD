@@ -10,6 +10,7 @@ namespace STD.Entities.Bullets
 
         public Bullet()
         {
+            Layer = (int)Global.LayerPriority.Bullet;
         }
     }
 }

@@ -9,10 +9,19 @@ namespace STD.Entities.Enemies
         public Spritemap<string> Sprite;
         public Sound HurtSound;
         public Life Health;
-        public bool IsDead { get { return Health.Health <= 0; } }
+
+        public Enemy()
+        {
+            Layer = (int)Global.LayerPriority.Enemy;
+        }
 
         public virtual void Hurt(int damage)
         {
+        }
+
+        public bool IsDead
+        {
+            get { return Health.IsDead; }
         }
     }
 }

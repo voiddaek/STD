@@ -12,7 +12,7 @@ namespace STD.Entities.Bullets
         {
             X = position.X;
             Y = position.Y;
-            BulletImage = new Spritemap<string>(Resources.Img.Towers.TOWER_BULLET, 16, 14);
+            BulletImage = new Spritemap<string>(Resources.Img.Bullets.BULLET_GREEN_1_1, 12, 12);
             LifeSpan = 60;
             Damage = 4;
             Speed = 1000;

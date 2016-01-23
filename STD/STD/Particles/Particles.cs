@@ -11,6 +11,7 @@ namespace STD.Particles
         public Particle(float x, float y)
             : base(x, y)
         {
+            Layer = (int)Global.LayerPriority.Particle;
         }
 
         public override void Update()

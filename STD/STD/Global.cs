@@ -18,5 +18,14 @@ namespace STD
             Tower = 1,
             Bullet = 2,
         }
+
+        public enum LayerPriority
+        {
+            HUD = -100,
+            Tower = 0,
+            Enemy = 1,
+            Bullet = 2,
+            Particle = 3,
+        }
     }
 }

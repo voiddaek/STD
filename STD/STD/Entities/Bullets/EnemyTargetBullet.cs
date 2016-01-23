@@ -15,7 +15,7 @@ namespace STD.Entities.Bullets
             X = position.X;
             Y = position.Y;
             Speed = 3000;
-            BulletImage = new Spritemap<string>(Resources.Img.Towers.TOWER_BULLET, 16, 14);
+            BulletImage = new Spritemap<string>(Resources.Img.Bullets.BULLET_RED_1_1, 12, 12);
             Damage = 4;
             Graphic = BulletImage;
             Graphic.CenterOrigin();
