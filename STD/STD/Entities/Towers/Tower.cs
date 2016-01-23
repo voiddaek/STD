@@ -1,14 +1,14 @@
 ﻿using Otter;
 using STD.Components.Weapons;
+using STD.Entities.Common;
 
 namespace STD.Entities.Towers
 {
-    public abstract class ITower : Entity
+    public abstract class Tower : EntityWithDirection
     {
         public Spritemap<string> Sprite;
-        public IWeapon Weapon;
 
-        public ITower()
+        public Tower()
         {
         }
 

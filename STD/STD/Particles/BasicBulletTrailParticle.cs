@@ -2,7 +2,7 @@
 
 namespace STD.Particles
 {
-    public class BasicBulletTrailParticle : IParticle
+    public class BasicBulletTrailParticle : Particle
     {
         public BasicBulletTrailParticle(float x, float y)
             : base(x, y)

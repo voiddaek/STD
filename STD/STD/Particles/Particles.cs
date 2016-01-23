@@ -2,13 +2,13 @@
 
 namespace STD.Particles
 {
-    public class IParticle : Entity
+    public class Particle : Entity
     {
         public Spritemap<string> Sprite;
         public Sound Sound;
         public int EndFrame;
 
-        public IParticle(float x, float y)
+        public Particle(float x, float y)
             : base(x, y)
         {
         }

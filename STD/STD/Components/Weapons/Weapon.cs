@@ -1,13 +1,15 @@
 ﻿using Otter;
+using STD.Entities.Towers;
 using System;
 
 namespace STD.Components.Weapons
 {
-    public abstract class IWeapon : AutoTimer
+    public abstract class Weapon : AutoTimer
     {
+        public Tower Tower;
         public float Range;
 
-        public IWeapon(float cooldown) : base(cooldown)
+        public Weapon(float cooldown) : base(cooldown)
         {
             this.Start();
         }

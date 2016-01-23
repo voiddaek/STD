@@ -2,7 +2,7 @@
 
 namespace STD.Particles
 {
-    public class BasicBulletExplosionParticle : IParticle
+    public class BasicBulletExplosionParticle : Particle
     {
         public BasicBulletExplosionParticle(float x, float y)
             : base(x, y)
