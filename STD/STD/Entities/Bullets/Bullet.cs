@@ -8,7 +8,7 @@ namespace STD.Entities.Bullets
         public Spritemap<string> BulletImage;
         public int Damage;
 
-        public Bullet()
+        public Bullet(int baseSpeed) : base(baseSpeed)
         {
             Layer = (int)Global.LayerPriority.Bullet;
         }

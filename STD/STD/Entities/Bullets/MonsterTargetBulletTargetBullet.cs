@@ -2,24 +2,24 @@
 using STD.Particles;
 using STD.Components.Movements;
 using STD.Components.Weapons;
-using STD.Entities.Enemies;
+using STD.Entities.Monsters;
+using STD.Events;
 
 namespace STD.Entities.Bullets
 {
-    public class EnemyTargetBullet : Bullet
+    public class MonsterTargetBullet : Bullet
     {
         private int _distance = 0;
 
-        public EnemyTargetBullet(Vector2 position, Enemy target)
+        public MonsterTargetBullet(Vector2 position, Monster target) : base(baseSpeed:3000)
         {
             X = position.X;
             Y = position.Y;
-            Speed = 3000;
-            BulletImage = new Spritemap<string>(Resources.Img.Bullets.BULLET_RED_1_1, 12, 12);
+            BulletImage = new Spritemap<string>(Resources.Sprites.Bullets.BULLET_RED_1_1, 12, 12);
             Damage = 4;
             Graphic = BulletImage;
             Graphic.CenterOrigin();
-            AddComponent(new ToEnemyMovement(this, target));
+            AddComponent(new ToMonsterMovement(this, target));
             SetHitbox(1, 1, Global.HitBoxTag.Bullet);
         }
 
@@ -29,8 +29,9 @@ namespace STD.Entities.Bullets
             var collb = Collider.Collide(X, Y, Global.HitBoxTag.Enemy);
             if (collb != null)
             {
-                Enemy enemy = (Enemy)collb.Entity;
-                enemy.Hurt(Damage);
+                Monster enemy = (Monster)collb.Entity;
+                enemy.PushEvent(new SlowMonsterEvent(enemy, 0.5f));
+                enemy.PushEvent(new DamageMonsterEvent(enemy, Damage));
                 Scene.Add(new BasicBulletExplosionParticle(X, Y));
                 RemoveSelf();
             }

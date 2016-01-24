@@ -1,10 +1,11 @@
 ﻿using Otter;
 using STD;
-using STD.Entities.Towers;
+using STD.Entities.Turrets;
 using STD.Components;
 using System.Collections.Generic;
 using System.Linq;
-using STD.Entities.Enemies;
+using STD.Entities.Monsters;
+using STD.Entities;
 
 namespace STD.Scenes
 {
@@ -15,23 +16,24 @@ namespace STD.Scenes
         public FirstScene()
         {
             Global.GAME.Debugger.ShowPerformance(5);
-            var background = new Image(Resources.Img.BACKGROUND);
+            var background = new Image(Resources.Sprites.BACKGROUND);
             background.Repeat = true;
             AddGraphic(background);
-            Add(new ToCloserEnemyWeaponTower(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
-            Add(new ToCloserEnemyWeaponTower(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
-            Add(new ToCloserEnemyWeaponTower(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
-            Add(new ToCloserEnemyWeaponTower(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
-            Add(new ToCloserEnemyWeaponTower(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
+            Add(new Map());
+            Add(new ToCloserMonsterWeaponTurret(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
+            //Add(new ToCloserMonsterWeaponTurret(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
+            //Add(new ToCloserMonsterWeaponTurret(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
+            //Add(new ToCloserMonsterWeaponTurret(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
+            //Add(new ToCloserMonsterWeaponTurret(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
             MainSong.Play();
         }
 
         public override void Update()
         {
             base.Update();
-            var enemies = GetEntities<Enemy>();
-            for (int i = enemies.Count; i < 30; ++i)
-                Add(new Enemy1Blue(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
+            var enemies = GetEntities<Monster>();
+            for (int i = enemies.Count; i < 1; ++i)
+                Add(new Monster1Blue(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
         }
     }
 }

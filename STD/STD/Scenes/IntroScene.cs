@@ -4,7 +4,7 @@ namespace STD.Scenes
 {
     public class IntroScene : Scene
     {
-        public Image tileImage = new Image(Resources.Img.TILE_IMG);
+        public Image tileImage = new Image(Resources.Sprites.TILE_IMG);
         public Text titleText = new Text("Super Tower Defense", Resources.Fonts.FONT_MAIN, 60);
         public Text enterText = new Text("Press Enter", Resources.Fonts.FONT_MAIN, 40);
         public Music introSong = new Music(Resources.Music.INTRO_MUSIC, true);

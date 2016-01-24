@@ -1,15 +1,15 @@
 ﻿using Otter;
 using STD.Entities.Common;
-using STD.Entities.Enemies;
+using STD.Entities.Monsters;
 
 namespace STD.Components.Movements
 {
-    public class ToEnemyMovement : EntityMovement
+    public class ToMonsterMovement : EntityMovement
     {
-        public Enemy Target;
-        public ToEnemyMovement(EntityWithDirection entity, Enemy enemy)
+        public Monster Target;
+        public ToMonsterMovement(EntityWithDirection entity, Monster target)
         {
-            Target = enemy;
+            Target = target;
             EntityWithDirection = entity;
         }
 

@@ -1,21 +1,21 @@
 ﻿using Otter;
 using STD.Components.Movements;
 using STD.Components.Weapons;
-using STD.Entities.Enemies;
+using STD.Entities.Monsters;
 using System.Collections.Generic;
 
-namespace STD.Entities.Towers
+namespace STD.Entities.Turrets
 {
-    public class ToCloserEnemyWeaponTower : Tower
+    public class ToCloserMonsterWeaponTurret : Turret
     {
-        public ToCloserEnemyWeaponTower(float x = 0, float y = 0)
+        public ToCloserMonsterWeaponTurret(float x = 0, float y = 0)
         {
             X = x;
             Y = y;
-            Sprite = new Spritemap<string>(Resources.Img.Towers.TOWER_1_1, 40, 40);
+            Sprite = new Spritemap<string>(Resources.Sprites.Turrets.TOWER_1_1, 40, 40);
             Graphic = Sprite;
             Graphic.CenterOrigin();
-            AddComponents(new ToCloserEnemyWeapon(this));
+            AddComponents(new ToCloserMonsterWeapon(this));
             AddComponent(new Rotation(this, 180));
         }
 

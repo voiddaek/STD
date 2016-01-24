@@ -2,15 +2,16 @@
 using STD.Components.Weapons;
 using STD.Entities.Common;
 
-namespace STD.Entities.Towers
+namespace STD.Entities.Turrets
 {
-    public abstract class Tower : EntityWithDirection
+    public abstract class Turret : EntityWithDirection
     {
         public Spritemap<string> Sprite;
 
-        public Tower()
+        public Turret()
+            : base(baseSpeed: 0)
         {
-            Layer = (int)Global.LayerPriority.Tower;
+            Layer = (int)Global.LayerPriority.Turret;
         }
 
         public override void Update()

@@ -56,24 +56,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\EventManager.cs" />
     <Compile Include="Components\Movements\EntityMovement.cs" />
     <Compile Include="Components\Movements\Rotation.cs" />
-    <Compile Include="Components\Movements\ToEnemyMovement.cs" />
-    <Compile Include="Components\Weapons\ToCloserEnemyWeapon.cs" />
+    <Compile Include="Components\Movements\ToMonsterMovement.cs" />
+    <Compile Include="Components\Weapons\ToCloserMonsterWeapon.cs" />
     <Compile Include="Components\Movements\CheckPointMovement.cs" />
     <Compile Include="Components\Life.cs" />
     <Compile Include="Components\Movements\StraightMovement.cs" />
-    <Compile Include="Entities\Bullets\EnemyTargetBullet.cs" />
+    <Compile Include="Entities\Bullets\MonsterTargetBulletTargetBullet.cs" />
     <Compile Include="Entities\Common\EntityWithDirection.cs" />
-    <Compile Include="Entities\Enemies\Enemy.cs" />
-    <Compile Include="Entities\Enemies\Enemy3Blue.cs" />
-    <Compile Include="Entities\Enemies\Enemy2Blue.cs" />
-    <Compile Include="Entities\Enemies\Enemy1Blue.cs" />
+    <Compile Include="Entities\Monsters\Monster.cs" />
+    <Compile Include="Entities\Monsters\Monster1Blue.cs" />
     <Compile Include="Entities\Bullets\Bullet.cs" />
     <Compile Include="Components\Weapons\Weapon.cs" />
-    <Compile Include="Entities\Towers\Tower.cs" />
+    <Compile Include="Entities\Map.cs" />
+    <Compile Include="Entities\Turrets\Tower.cs" />
     <Compile Include="Entities\Bullets\StraightMovementBullet.cs" />
-    <Compile Include="Entities\Towers\ToCloserEnemyWeaponTower.cs" />
+    <Compile Include="Entities\Turrets\ToCloserMonsterWeaponTurret.cs" />
+    <Compile Include="Events\MonsterEvent.cs" />
     <Compile Include="Global.cs" />
     <Compile Include="Particles\BasicBulletExplosionParticle.cs" />
     <Compile Include="Particles\BasicBulletTrailParticle.cs" />
@@ -99,7 +100,6 @@
     <None Include="Resources\musics\Ingame-theme.ogg" />
     <None Include="Resources\musics\Main-theme.ogg" />
     <None Include="Resources\shaders\blast.frag" />
-    <None Include="Resources\sounds\enemies\enemyHurt.ogg" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Otter\Otter.csproj">
@@ -131,54 +131,50 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\sounds\monsters\explosion.wav" />
+    <Content Include="Resources\sounds\monsters\hit.wav" />
+    <Content Include="Resources\sounds\monsters\shoot.wav" />
     <Content Include="Resources\sprites\background.png" />
     <Content Include="Resources\sprites\bullets\bullet-blue-1-1.png" />
     <Content Include="Resources\sprites\bullets\bullet-green-1-1.png" />
     <Content Include="Resources\sprites\bullets\bullet-red-1-1.png" />
     <Content Include="Resources\sprites\bullets\bullet-yellow-1-1.png" />
-    <Content Include="Resources\sprites\enemies\boss_1.png" />
-    <Content Include="Resources\sprites\enemies\enemy_1_blue.png" />
+    <Content Include="Resources\sprites\monsters\boss_1.png" />
+    <Content Include="Resources\sprites\monsters\enemy_1_blue.png" />
     <Content Include="Resources\Remember.txt" />
-    <Content Include="Resources\sprites\enemies\enemy.png" />
-    <Content Include="Resources\sprites\enemies\enemy_2_blue.png" />
-    <Content Include="Resources\sprites\enemies\enemy_3_blue.png" />
-    <Content Include="Resources\sprites\enemies\explosion.png" />
+    <Content Include="Resources\sprites\monsters\enemy.png" />
+    <Content Include="Resources\sprites\monsters\enemy_2_blue.png" />
+    <Content Include="Resources\sprites\monsters\enemy_3_blue.png" />
+    <Content Include="Resources\sprites\monsters\explosion.png" />
     <Content Include="Resources\sprites\tiles.png" />
-    <Content Include="Resources\sprites\towers\bullet.png" />
-    <Content Include="Resources\musics\Button_C-J_Fairba-8445_hifi.mp3" />
-    <Content Include="Resources\musics\DST-2ndBallad.mp3" />
-    <Content Include="Resources\musics\DST-5thStreet.mp3" />
-    <Content Include="Resources\musics\DST-Afternoon.mp3" />
-    <Content Include="Resources\musics\DST-Canopy.mp3" />
-    <Content Include="Resources\sprites\towers\explosion.png" />
-    <Content Include="Resources\musics\Jump.wav" />
-    <Content Include="Resources\musics\Mario_Jumping-Mike_Koenig-989896458.mp3" />
-    <Content Include="Resources\musics\MenuClick.wav" />
-    <Content Include="Resources\sprites\towers\particle.png" />
-    <Content Include="Resources\sprites\towers\turret-1-1.png" />
-    <Content Include="Resources\sprites\towers\turret-1-2.png" />
-    <Content Include="Resources\sprites\towers\turret-1-3.png" />
-    <Content Include="Resources\sprites\towers\turret-2-1.png" />
-    <Content Include="Resources\sprites\towers\turret-2-2.png" />
-    <Content Include="Resources\sprites\towers\turret-2-3.png" />
-    <Content Include="Resources\sprites\towers\turret-3-1.png" />
-    <Content Include="Resources\sprites\towers\turret-3-2.png" />
-    <Content Include="Resources\sprites\towers\turret-3-3.png" />
-    <Content Include="Resources\sprites\towers\turret-4-1.png" />
-    <Content Include="Resources\sprites\towers\turret-4-2.png" />
-    <Content Include="Resources\sprites\towers\turret-4-3.png" />
-    <Content Include="Resources\sprites\towers\turret-5-1.png" />
-    <Content Include="Resources\sprites\towers\turret-5-2.png" />
-    <Content Include="Resources\sprites\towers\turret-5-3.png" />
-    <Content Include="Resources\sprites\towers\turret-6-1.png" />
-    <Content Include="Resources\sprites\towers\turret-6-2.png" />
-    <Content Include="Resources\sprites\towers\turret-6-3.png" />
-    <Content Include="Resources\sprites\towers\turret-7-1.png" />
-    <Content Include="Resources\sprites\towers\turret-7-2.png" />
-    <Content Include="Resources\sprites\towers\turret-7-3.png" />
-    <Content Include="Resources\sprites\towers\turret-base.gif" />
+    <Content Include="Resources\sprites\turrets\bullet.png" />
+    <Content Include="Resources\sprites\turrets\explosion.png" />
+    <Content Include="Resources\sprites\turrets\particle.png" />
+    <Content Include="Resources\sprites\turrets\turret-1-1.png" />
+    <Content Include="Resources\sprites\turrets\turret-1-2.png" />
+    <Content Include="Resources\sprites\turrets\turret-1-3.png" />
+    <Content Include="Resources\sprites\turrets\turret-2-1.png" />
+    <Content Include="Resources\sprites\turrets\turret-2-2.png" />
+    <Content Include="Resources\sprites\turrets\turret-2-3.png" />
+    <Content Include="Resources\sprites\turrets\turret-3-1.png" />
+    <Content Include="Resources\sprites\turrets\turret-3-2.png" />
+    <Content Include="Resources\sprites\turrets\turret-3-3.png" />
+    <Content Include="Resources\sprites\turrets\turret-4-1.png" />
+    <Content Include="Resources\sprites\turrets\turret-4-2.png" />
+    <Content Include="Resources\sprites\turrets\turret-4-3.png" />
+    <Content Include="Resources\sprites\turrets\turret-5-1.png" />
+    <Content Include="Resources\sprites\turrets\turret-5-2.png" />
+    <Content Include="Resources\sprites\turrets\turret-5-3.png" />
+    <Content Include="Resources\sprites\turrets\turret-6-1.png" />
+    <Content Include="Resources\sprites\turrets\turret-6-2.png" />
+    <Content Include="Resources\sprites\turrets\turret-6-3.png" />
+    <Content Include="Resources\sprites\turrets\turret-7-1.png" />
+    <Content Include="Resources\sprites\turrets\turret-7-2.png" />
+    <Content Include="Resources\sprites\turrets\turret-7-3.png" />
+    <Content Include="Resources\sprites\turrets\turret-base.gif" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Resources\data\" />
     <Folder Include="Resources\sprites\effects\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

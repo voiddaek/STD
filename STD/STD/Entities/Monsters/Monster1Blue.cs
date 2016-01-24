@@ -4,18 +4,22 @@ using STD.Components.Movements;
 using STD.Particles;
 using System.Collections.Generic;
 
-namespace STD.Entities.Enemies
+namespace STD.Entities.Monsters
 {
-    public class Enemy1Blue : Enemy
+    public class Monster1Blue : Monster
     {
         public LinkedListNode<Vector2> Path { get; set; }
 
-        public Enemy1Blue(float x = 0, float y = 0)
+        public Monster1Blue(float x = 0, float y = 0)
+            : base(baseSpeed:600)
         {
             X = x;
             Y = y;
-            HurtSound = new Sound(Resources.Sound.Enemies.BASIC_ENEMY_HURT);
-            Sprite = new Spritemap<string>(Resources.Img.Enemies.ENEMY_1_BLUE, 46, 46);
+            HurtSound = new Sound(Resources.Sound.Monsters.BASIC_ENEMY_HIT);
+            HurtSound.Volume = 0.1f;
+            DeathSound = new Sound(Resources.Sound.Monsters.BASIC_ENEMY_EXPLOSION);
+            DeathSound.Volume = 0.7f;
+            Sprite = new Spritemap<string>(Resources.Sprites.Monsters.ENEMY_1_BLUE, 46, 46);
             Sprite.Add("walk", new int[] { 0, 1, 2, 3, 4, 5 }, new float[] { 10f, 2f, 1f, 10f, 2f, 1f });
             Sprite.Play("walk");
             Graphic = Sprite;
@@ -24,7 +28,6 @@ namespace STD.Entities.Enemies
             Health.OnDeath = OnDeath;
             Health.OnHurt = OnHurt;
             Direction = Vector2.Zero;
-            Speed = 600;
             var c = new LinkedListNode<Vector2>(new Vector2(50.0f, 50.0f));
             var t = new LinkedList<Vector2>();
             Path = c;
@@ -54,7 +57,8 @@ namespace STD.Entities.Enemies
 
         private void OnDeath()
         {
-            Scene.Add(new EnemyExplosionParticle(X, Y));
+            DeathSound.Play();
+            Scene.Add(new MonsterExplosionParticle(X, Y));
             RemoveSelf();
         }
     }

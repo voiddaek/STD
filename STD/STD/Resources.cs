@@ -8,16 +8,16 @@ namespace STD
 {
     public class Resources
     {
-        public class Img
+        public class Sprites
         {
             private const string IMG_PATH = "sprites/";
 
             public const string TILE_IMG = IMG_PATH + "tiles.png";
             public const string BACKGROUND = IMG_PATH + "background.png";
 
-            public class Towers
+            public class Turrets
             {
-                private const string TOWERS_PATH = IMG_PATH + "towers/";
+                private const string TOWERS_PATH = IMG_PATH + "turrets/";
 
                 public const string TOWER_1_1 = TOWERS_PATH + "turret-1-1.png";
                 public const string TOWER_1_2 = TOWERS_PATH + "turret-1-2.png";
@@ -54,9 +54,9 @@ namespace STD
                 public const string BULLET_GREEN_1_1 = BULLETS_PATH + "bullet-yellow-1-1.png";
             }
 
-            public class Enemies
+            public class Monsters
             {
-                private const string ENEMIES_PATH = IMG_PATH + "enemies/";
+                private const string ENEMIES_PATH = IMG_PATH + "monsters/";
 
                 public const string ENEMY_1_BLUE = ENEMIES_PATH + "enemy_1_blue.png";
                 public const string ENEMY_2_BLUE = ENEMIES_PATH + "enemy_2_blue.png";
@@ -84,11 +84,13 @@ namespace STD
         {
             private const string SOUND_PATH = "sounds/";
 
-            public class Enemies
+            public class Monsters
             {
-                private const string ENEMIES_PATH = SOUND_PATH + "enemies/";
+                private const string ENEMIES_PATH = SOUND_PATH + "monsters/";
 
-                public const string BASIC_ENEMY_HURT = ENEMIES_PATH + "enemyHurt.ogg";
+                public const string BASIC_ENEMY_HIT = ENEMIES_PATH + "hit.wav";
+                public const string BASIC_ENEMY_EXPLOSION = ENEMIES_PATH + "explosion.wav";
+                public const string BASIC_ENEMY_SHOOT = ENEMIES_PATH + "shoot.wav";
             }
         }
 

@@ -22,10 +22,11 @@ namespace STD
         public enum LayerPriority
         {
             HUD = -100,
-            Tower = 0,
-            Enemy = 1,
+            Turret = 0,
+            Monster = 1,
             Bullet = 2,
             Particle = 3,
+            Map = 100
         }
     }
 }
