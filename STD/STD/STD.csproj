@@ -54,6 +54,16 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="Tao.OpenGl">
+      <HintPath>..\TGUI.Net-master\lib\x86\Tao.OpenGl.dll</HintPath>
+    </Reference>
+    <Reference Include="Tao.OpenGl.ExtensionLoader">
+      <HintPath>..\TGUI.Net-master\lib\x86\Tao.OpenGl.ExtensionLoader.dll</HintPath>
+    </Reference>
+    <Reference Include="tguinet, Version=0.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\tguinet.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Components\Movements\ToEnemyMovement.cs" />
@@ -88,12 +98,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Resources\fontd\crayon.ttf" />
     <None Include="Resources\fonts\crayon.ttf" />
     <None Include="Resources\fonts\gungsuh.ttc" />
     <None Include="Resources\fonts\PanicStricken.ttf" />
     <None Include="Resources\musics\Ingame-theme.ogg" />
     <None Include="Resources\musics\Main-theme.ogg" />
     <None Include="Resources\sounds\enemies\enemyHurt.ogg" />
+    <None Include="Resources\widgets\Black.conf" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Otter\Otter.csproj">
@@ -140,6 +152,7 @@
     <Content Include="Resources\musics\MenuClick.wav" />
     <Content Include="Resources\sprites\particle.png" />
     <Content Include="Resources\sprites\towers\tower.png" />
+    <Content Include="Resources\widgets\Black.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

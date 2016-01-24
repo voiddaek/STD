@@ -53,6 +53,15 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="Tao.OpenGl">
+      <HintPath>..\TGUI.Net-master\lib\x86\Tao.OpenGl.dll</HintPath>
+    </Reference>
+    <Reference Include="Tao.OpenGl.ExtensionLoader">
+      <HintPath>..\TGUI.Net-master\lib\x86\Tao.OpenGl.ExtensionLoader.dll</HintPath>
+    </Reference>
+    <Reference Include="tguinet">
+      <HintPath>..\STD\bin\Debug\tguinet.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Colliders\PolygonCollider.cs" />
@@ -165,6 +174,7 @@
     <EmbeddedResource Include="CONSOLA.TTF" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="widgets\Black.png" />
     <EmbeddedResource Include="otterlogo.png" />
     <Content Include="libsndfile-1.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -192,6 +202,8 @@
     <None Include="@(Libs)">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="fonts\crayon.ttf" />
+    <None Include="widgets\Black.conf" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using TGUI;
 
 namespace Otter {
     /// <summary>
@@ -825,8 +826,26 @@ namespace Otter {
                 Debugger.Render();
             }
 
+            TGUI.Gui gui = new TGUI.Gui(Window);
+            gui.GlobalFont = new SFML.Graphics.Font("fonts/crayon.ttf");
+            // Create the login button
+            TGUI.Button button = gui.Add(new TGUI.Button("widgets/Black.conf"));
+            button.Size = new Vector2f(260, 60);
+            button.Position = new Vector2f(270, 440);
+            button.Text = "Hello";
+            button.CallbackId = 1;
+            button.LeftMouseClickedCallback += OnButtonClick;
+
+            gui.Draw();
+
             Window.Display();
         }
+
+        private void OnButtonClick(object sender, CallbackArgs e)
+        {
+           // throw new NotImplementedException();
+        }
+
 
         void OnWindowClose(object sender, EventArgs e) {
             Window.Close();
