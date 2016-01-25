@@ -7,10 +7,11 @@ namespace STD.Entities.Turrets
     public abstract class Turret : EntityWithDirection
     {
         public Spritemap<string> Sprite;
-
-        public Turret()
+        public float Range;
+        public Turret(float range)
             : base(baseSpeed: 0)
         {
+            Range = range;
             Layer = (int)Global.LayerPriority.Turret;
         }
 

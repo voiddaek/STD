@@ -8,7 +8,7 @@ namespace STD.Entities.Turrets
 {
     public class ToCloserMonsterWeaponTurret : Turret
     {
-        public ToCloserMonsterWeaponTurret(float x = 0, float y = 0)
+        public ToCloserMonsterWeaponTurret(float x = 0, float y = 0) : base(range:300)
         {
             X = x;
             Y = y;

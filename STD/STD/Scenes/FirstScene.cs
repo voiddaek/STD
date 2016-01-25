@@ -20,11 +20,16 @@ namespace STD.Scenes
             background.Repeat = true;
             AddGraphic(background);
             Add(new Map());
+            Add(new AoEWeaponTurret(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
+            Add(new AoEWeaponTurret(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
+            Add(new AoEWeaponTurret(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
+            Add(new AoEWeaponTurret(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
+            Add(new AoEWeaponTurret(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
             Add(new ToCloserMonsterWeaponTurret(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
-            //Add(new ToCloserMonsterWeaponTurret(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
-            //Add(new ToCloserMonsterWeaponTurret(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
-            //Add(new ToCloserMonsterWeaponTurret(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
-            //Add(new ToCloserMonsterWeaponTurret(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
+            Add(new ToCloserMonsterWeaponTurret(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
+            Add(new ToCloserMonsterWeaponTurret(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
+            Add(new ToCloserMonsterWeaponTurret(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
+            Add(new ToCloserMonsterWeaponTurret(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
             MainSong.Play();
         }
 
@@ -32,7 +37,7 @@ namespace STD.Scenes
         {
             base.Update();
             var enemies = GetEntities<Monster>();
-            for (int i = enemies.Count; i < 1; ++i)
+            for (int i = enemies.Count; i < 20; ++i)
                 Add(new Monster1Blue(Rand.Float(Global.GAME.Width), Rand.Float(Global.GAME.Height)));
         }
     }

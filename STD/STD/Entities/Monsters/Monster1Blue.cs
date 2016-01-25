@@ -37,6 +37,7 @@ namespace STD.Entities.Monsters
             t.AddLast(new Vector2(50, Global.GAME.Height - 50.0f));
             AddComponent(new CheckPointMovement(this, Path));
             AddComponent(new Rotation(this, 90));
+            AddComponent(Health);
             SetHitbox(23, 23, Global.HitBoxTag.Enemy);
         }
 

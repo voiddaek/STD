@@ -8,13 +8,12 @@ namespace STD.Entities.Bullets
 {
     public class StraightMovementBullet : Bullet
     {
-        public StraightMovementBullet(Vector2 position, Vector2 direction) : base(baseSpeed:1000)
+        public StraightMovementBullet(Vector2 position, Vector2 direction) : base(damage:4, baseSpeed:1000)
         {
             X = position.X;
             Y = position.Y;
             BulletImage = new Spritemap<string>(Resources.Sprites.Bullets.BULLET_GREEN_1_1, 12, 12);
             LifeSpan = 60;
-            Damage = 4;
             Graphic = BulletImage;
             Graphic.CenterOrigin();
             AddComponent(new StraightMovement(this));

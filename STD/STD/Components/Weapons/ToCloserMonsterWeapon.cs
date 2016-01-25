@@ -12,12 +12,11 @@ namespace STD.Components.Weapons
     {
         Monster Target;
         public ToCloserMonsterWeapon(Turret tower)
-            : base(40)
+            : base(range:tower.Range, damage:4, cooldown:40)
         {
             ShootSound = new Sound(Resources.Sound.Monsters.BASIC_ENEMY_SHOOT);
             ShootSound.Volume = 0.2f;
             Tower = tower;
-            Range = 300;
         }
 
         public override void Update()
@@ -30,7 +29,7 @@ namespace STD.Components.Weapons
             Tower.Direction.X = Target.X - Entity.X;
             Tower.Direction.Y = Target.Y - Entity.Y;
             var distance = Vector2.Distance(new Vector2(Target.X, Target.Y), new Vector2(Entity.X, Entity.Y));
-            if (AtMax && distance < Range)
+            if (AtMax && distance <= Range)
                 Shoot();
         }
 
@@ -38,7 +37,7 @@ namespace STD.Components.Weapons
         {
             base.Shoot();
             ShootSound.Play();
-            Scene.Add(new MonsterTargetBullet(new Vector2(Entity.X, Entity.Y), Target));
+            Scene.Add(new MonsterTargetBullet(new Vector2(Entity.X, Entity.Y), Target, Damage));
             Reset();
         }
     }

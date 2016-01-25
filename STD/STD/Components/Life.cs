@@ -20,6 +20,7 @@ namespace STD.Components
 
         public void Hurt(int damage)
         {
+            Scene.Add(new DamageText(Entity.X, Entity.Y, damage.ToString()));
             OnHurt();
             Health -= damage;
             if (Health <= 0)

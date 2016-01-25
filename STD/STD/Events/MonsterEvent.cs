@@ -15,9 +15,9 @@ namespace STD.Events
     {
         public float Duration;
         public float Ratio;
-        public SlowMonsterEvent(Monster monster, float ratio) : base(monster)
+        public SlowMonsterEvent(Monster monster, float ratio, float duration) : base(monster)
         {
-            Duration = 10.0f;
+            Duration = duration;
             Ratio = ratio;
         }
 

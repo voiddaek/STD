@@ -11,12 +11,11 @@ namespace STD.Entities.Bullets
     {
         private int _distance = 0;
 
-        public MonsterTargetBullet(Vector2 position, Monster target) : base(baseSpeed:3000)
+        public MonsterTargetBullet(Vector2 position, Monster target, int damage) : base(damage:damage, baseSpeed:3000)
         {
             X = position.X;
             Y = position.Y;
             BulletImage = new Spritemap<string>(Resources.Sprites.Bullets.BULLET_RED_1_1, 12, 12);
-            Damage = 4;
             Graphic = BulletImage;
             Graphic.CenterOrigin();
             AddComponent(new ToMonsterMovement(this, target));
@@ -30,7 +29,7 @@ namespace STD.Entities.Bullets
             if (collb != null)
             {
                 Monster enemy = (Monster)collb.Entity;
-                enemy.PushEvent(new SlowMonsterEvent(enemy, 0.5f));
+                enemy.PushEvent(new SlowMonsterEvent(enemy, 0.5f, 50));
                 enemy.PushEvent(new DamageMonsterEvent(enemy, Damage));
                 Scene.Add(new BasicBulletExplosionParticle(X, Y));
                 RemoveSelf();

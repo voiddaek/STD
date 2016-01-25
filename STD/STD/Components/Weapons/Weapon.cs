@@ -9,9 +9,11 @@ namespace STD.Components.Weapons
         public Turret Tower;
         public float Range;
         public Sound ShootSound;
-
-        public Weapon(float cooldown) : base(cooldown)
+        public int Damage;
+        public Weapon(float range, int damage, float cooldown) : base(cooldown)
         {
+            Range = range;
+            Damage = damage;
             this.Start();
         }
 
