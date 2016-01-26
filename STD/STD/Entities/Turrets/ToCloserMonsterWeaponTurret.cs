@@ -23,6 +23,13 @@ namespace STD.Entities.Turrets
         public override void Update()
         {
             base.Update();
+            if (Timer % 200 == 0)
+            {
+                MaxTargets++;
+                var wl = GetComponents<Weapon>();
+                foreach (var wde in wl)
+                    wde.Damage++;
+            }
         }
     }
 }

@@ -14,7 +14,7 @@ namespace STD.Components.Weapons
         public Image RangeImage;
         IList<Monster> Targets;
         public AoEWeapon(Turret tower)
-            : base(range:tower.Range, damage:1, cooldown:13)
+            : base(range:tower.Range, damage:1, cooldown: 13)
         {
             ShootSound = new Sound(Resources.Sound.Monsters.BASIC_ENEMY_SHOOT);
             ShootSound.Volume = 0.2f;
