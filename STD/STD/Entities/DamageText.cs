@@ -4,9 +4,9 @@ namespace STD.Entities
     public class DamageText : Entity
     {
         private Text text;
-        public DamageText(float x, float y, string dmgText, int fontSize = 16)
+        public DamageText(float x, float y, string dmgText, int fontSize = 16) : base(x, y)
         {
-            text = new Text(dmgText, fontSize);
+            text = new Text(dmgText, Resources.Fonts.FONT_MAIN, fontSize);
             text.Color = Color.Red;
             X = x + Otter.Rand.Int(0, 30);
             Y = y - 20;

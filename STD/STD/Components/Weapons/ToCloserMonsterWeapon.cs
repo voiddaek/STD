@@ -10,7 +10,8 @@ namespace STD.Components.Weapons
 {
     public class ToCloserMonsterWeapon : Weapon
     {
-        Monster Target;
+        public int MaxTargets;
+        IList<Monster> Targets;
         public ToCloserMonsterWeapon(Turret tower)
             : base(range:tower.Range, damage:4, cooldown:40)
         {
@@ -25,11 +26,14 @@ namespace STD.Components.Weapons
             var enemies = Scene.GetEntities<Monster>();
             if (enemies.IsEmpty())
                 return;
-            Target = enemies.Aggregate((i1, i2) => Vector2.Distance(new Vector2(i1.X, i1.Y), new Vector2(Entity.X, Entity.Y)) < Vector2.Distance(new Vector2(i2.X, i2.Y), new Vector2(Entity.X, Entity.Y)) ? i1 : i2);
-            Tower.Direction.X = Target.X - Entity.X;
-            Tower.Direction.Y = Target.Y - Entity.Y;
-            var distance = Vector2.Distance(new Vector2(Target.X, Target.Y), new Vector2(Entity.X, Entity.Y));
-            if (AtMax && distance <= Range)
+            var targetsDistance = enemies.Select(x => new { Target = x, Distance = Vector2.Distance(new Vector2(x.X, x.Y), new Vector2(Entity.X, Entity.Y))}).ToList();
+            Targets = targetsDistance.OrderBy(x => x.Distance).Select(x => x.Target).Take(Tower.MaxTargets).ToList();
+            if (Targets.Any())
+            {
+                Tower.Direction.X = Targets.Sum(target => target.X) / Targets.Count;
+                Tower.Direction.Y = Targets.Sum(target => target.Y) / Targets.Count;
+            }
+            if (AtMax)
                 Shoot();
         }
 
@@ -37,7 +41,8 @@ namespace STD.Components.Weapons
         {
             base.Shoot();
             ShootSound.Play();
-            Scene.Add(new MonsterTargetBullet(new Vector2(Entity.X, Entity.Y), Target, Damage));
+            foreach (var target in Targets)
+                Scene.Add(new MonsterTargetBullet(new Vector2(Entity.X, Entity.Y), target, Damage));
             Reset();
         }
     }

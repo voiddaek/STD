@@ -8,7 +8,7 @@ namespace STD.Entities.Turrets
 {
     public class ToCloserMonsterWeaponTurret : Turret
     {
-        public ToCloserMonsterWeaponTurret(float x = 0, float y = 0) : base(range:300)
+        public ToCloserMonsterWeaponTurret(float x = 0, float y = 0) : base(range:300, maxtargets:2)
         {
             X = x;
             Y = y;
@@ -16,6 +16,7 @@ namespace STD.Entities.Turrets
             Graphic = Sprite;
             Graphic.CenterOrigin();
             AddComponents(new ToCloserMonsterWeapon(this));
+            AddComponents(new AoEWeapon(this));
             AddComponent(new Rotation(this, 180));
         }
 
